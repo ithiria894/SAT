@@ -396,6 +396,23 @@
       font-weight: 650;
     }
 
+    .intuition-panel {
+      margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+      padding: clamp(.75rem, 3vw, 1.25rem);
+      background: color-mix(in oklch, var(--paper) 62%, var(--blue-soft));
+    }
+
+    .intuition-rule {
+      margin: .85rem 0 0;
+      padding: .7rem .85rem;
+      color: var(--paper);
+      background: var(--blue);
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .intuition-rule strong { color: var(--yellow); }
+
     .mechanical {
       counter-reset: moves;
       margin: 0;
@@ -896,6 +913,38 @@
           <div class="equation"><i>y</i> = <i>a</i>[<i>x</i> − (<span class="vx-mark"><i>V</i><sub>x</sub></span>)]² + <span class="vy-mark"><i>V</i><sub>y</sub></span></div>
           <div class="equation small">vertex = (<span class="vx-mark"><i>V</i><sub>x</sub></span>, <span class="vy-mark"><i>V</i><sub>y</sub></span>)</div>
         </div>
+
+        <figure class="diagram-panel intuition-panel" aria-labelledby="shiftTitle shiftDesc">
+          <svg viewBox="0 0 720 330" role="img" aria-labelledby="shiftTitle shiftDesc">
+            <title id="shiftTitle">y 等於 x 平方向左平移十五</title>
+            <desc id="shiftDesc">灰色的 y 等於 x 平方最低點在零零。藍色的 y 等於 x 加十五全平方，整幅圖向左移十五，最低點在負十五零。</desc>
+            <defs>
+              <marker id="shiftArrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+                <path d="M0,0 L0,8 L9,4 z" fill="#d94427"/>
+              </marker>
+              <marker id="axisArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L7,3 z" fill="#18243b"/>
+              </marker>
+            </defs>
+            <path d="M42 236H682" fill="none" stroke="#18243b" stroke-width="3" marker-end="url(#axisArrow)"/>
+            <path d="M500 286V30" fill="none" stroke="#18243b" stroke-width="3" marker-end="url(#axisArrow)"/>
+
+            <path d="M390 62Q500 236 610 62" fill="none" stroke="#18243b" stroke-opacity=".36" stroke-width="8" stroke-dasharray="10 8" stroke-linecap="round"/>
+            <circle cx="500" cy="236" r="8" fill="#18243b" opacity=".5"/>
+            <text x="518" y="273" font-family="STIX Two Text, serif" font-size="25" font-style="italic" font-weight="650" fill="#18243b">(0, 0)</text>
+            <text x="520" y="50" font-family="STIX Two Text, serif" font-size="27" font-style="italic" font-weight="650" fill="#18243b">y = x²</text>
+
+            <path d="M90 62Q200 236 310 62" fill="none" stroke="#1d55be" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="200" cy="236" r="9" fill="#d94427" stroke="#18243b" stroke-width="3"/>
+            <text x="150" y="273" font-family="STIX Two Text, serif" font-size="25" font-style="italic" font-weight="650" fill="#d94427">(−15, 0)</text>
+            <text x="76" y="50" font-family="STIX Two Text, serif" font-size="27" font-style="italic" font-weight="650" fill="#1d55be">y = (x + 15)²</text>
+
+            <path d="M462 304H238" fill="none" stroke="#d94427" stroke-width="4" marker-end="url(#shiftArrow)"/>
+            <text x="300" y="296" font-family="Bricolage Grotesque, sans-serif" font-size="20" font-weight="800" fill="#d94427">成幅向左搬 15</text>
+          </svg>
+          <figcaption class="diagram-caption">直覺：由 <i>y</i> = <i>x</i>² 嘅 (0, 0) 出發，括號入面變成 <i>x</i> + 15，成幅 U 形向左搬 15，vertex 就去到 (−15, 0)。</figcaption>
+          <p class="intuition-rule"><strong>防錯法：</strong>唔使死背「內加向左」。直接令括號 = 0：<i>x</i> + 15 = 0，所以 <i>V</i><sub>x</sub> = −15；括號外冇數，所以 <i>V</i><sub>y</sub> = 0。</p>
+        </figure>
 
         <div class="vertex-grid">
           <div class="explanation">
