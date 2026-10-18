@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f4eedf">
-  <meta name="description" content="Nicole 的 SAT Math 視覺公式速查表：Vertex form、tangent、similar triangles、平方方程解的數量、直線 mother graphs。">
+  <meta name="description" content="Nicole 的 SAT Math 視覺公式速查表：Vertex form、tangent、similar triangles、quadratic roots、平方方程解的數量、直線 mother graphs。">
   <title>SAT Math｜Locked Formula Sheet</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2318243b'/%3E%3Cpath d='M12 48Q20 8 32 42Q44 8 52 48' fill='none' stroke='%23f1d554' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -352,6 +352,18 @@
     }
 
     .equation.small { font-size: clamp(1.45rem, 5vw, 3rem); }
+
+    .equation.root-route {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .15em .6em;
+      overflow: visible;
+      white-space: normal;
+      font-size: clamp(1.35rem, 4.6vw, 2.65rem);
+    }
+
+    .root-route .route-arrow { color: var(--blue-soft); }
 
     .equation .vx-mark {
       color: var(--yellow);
@@ -932,13 +944,14 @@
       <a href="#tangent" data-no="03">Tangent</a>
       <a href="#similar" data-no="04">Similar triangles</a>
       <a href="#square-solutions" data-no="05">Square solutions</a>
-      <a href="#mother-lines" data-no="06">Mother graphs</a>
+      <a href="#quadratic-roots" data-no="06">Quadratic roots</a>
+      <a href="#mother-lines" data-no="07">Mother graphs</a>
     </nav>
 
     <main id="main">
       <section class="hero" aria-labelledby="pageTitle">
         <div>
-          <p class="eyebrow"><span>Locked</span> 最快版本 · 2026-10-17</p>
+          <p class="eyebrow"><span>Locked</span> 最快版本 · 2026-10-18</p>
           <h1 id="pageTitle">少啲腦內轉換。快啲落筆。</h1>
           <p class="hero-lead">做題時擺喺側邊。先睇圖認題型，再照機械步驟做；理解過嘅嘢，唔需要每次重新發明。</p>
           <div class="hero-formula" aria-label="y equals a times open bracket x minus vertex x close bracket squared plus vertex y">
@@ -976,7 +989,7 @@
       </section>
 
       <div class="fact-strip" aria-label="學習狀態">
-        <div class="fact"><strong>06</strong><span>已鎖定方法</span></div>
+        <div class="fact"><strong>07</strong><span>已鎖定方法</span></div>
         <div class="fact"><strong>108</strong><span>聽日題目</span></div>
         <div class="fact"><strong>02</strong><span>聽日試卷</span></div>
         <div class="fact"><strong>Circle</strong><span>未學完 · 唔亂加</span></div>
@@ -1290,9 +1303,88 @@ Disp "VY=",Y</pre>
         </div>
       </section>
 
-      <section class="lesson" id="mother-lines" aria-labelledby="motherLinesTitle">
+      <section class="lesson" id="quadratic-roots" aria-labelledby="quadraticRootsTitle">
         <header class="lesson-head">
           <div class="lesson-number">06</div>
+          <div>
+            <p class="section-kicker"><span class="status">Calculator first</span></p>
+            <h2 id="quadraticRootsTitle">Quadratic roots：唔手計</h2>
+          </div>
+          <p class="lesson-subtitle">只要題目係問 solutions、roots 或 x-intercepts，就用 Bluebook 內置 Desmos。SAT 唔要求寫步驟，冇必要每次手抄 quadratic formula。</p>
+        </header>
+
+        <div class="formula-stage">
+          <span class="formula-label">唯一預設路線</span>
+          <div class="equation small root-route">
+            <span><i>ax</i>² + <i>bx</i> + <i>c</i> = 0</span>
+            <span class="route-arrow" aria-hidden="true">→</span>
+            <span>Desmos：<i>y</i> = <i>ax</i>² + <i>bx</i> + <i>c</i></span>
+          </div>
+          <div class="equation small root-route">
+            <span>撳兩個 x-intercepts</span>
+            <span class="route-arrow" aria-hidden="true">→</span>
+            <span><i>x</i> = roots</span>
+          </div>
+        </div>
+
+        <div class="step-tape" aria-label="Desmos 解 quadratic equation 三步">
+          <div class="step">
+            <b>Step 01 · 歸零</b>
+            <span class="math">全部搬去一邊 = 0</span>
+          </div>
+          <div class="step">
+            <b>Step 02 · 輸入</b>
+            <span class="math"><i>y</i> = 左邊成條式</span>
+          </div>
+          <div class="step">
+            <b>Step 03 · 撳點</b>
+            <span class="math">(root, 0)</span>
+          </div>
+        </div>
+
+        <div class="method-grid">
+          <figure class="diagram-panel" aria-labelledby="rootGraphTitle rootGraphDesc">
+            <svg viewBox="0 0 620 400" role="img" aria-labelledby="rootGraphTitle rootGraphDesc">
+              <title id="rootGraphTitle">Quadratic graph 的兩個 x-intercepts</title>
+              <desc id="rootGraphDesc">藍色拋物線穿過 x 軸兩次，紅色標示兩個交點 x 等於負二和負一點五，亦即方程式的兩個解。</desc>
+              <defs>
+                <pattern id="rootGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+                  <path d="M48 0H0V48" fill="none" stroke="#1d55be" stroke-opacity=".14" stroke-width="1"/>
+                </pattern>
+                <marker id="rootAxisArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L7,3 z" fill="#18243b"/>
+                </marker>
+              </defs>
+              <rect x="26" y="22" width="568" height="340" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
+              <rect x="26" y="22" width="568" height="340" fill="url(#rootGrid)"/>
+              <path d="M52 250H570M430 342V46" fill="none" stroke="#18243b" stroke-width="3" marker-end="url(#rootAxisArrow)"/>
+              <path d="M112 60Q238 406 366 60" fill="none" stroke="#1d55be" stroke-width="10" stroke-linecap="round"/>
+              <circle cx="184" cy="250" r="10" fill="#d94427" stroke="#18243b" stroke-width="3"/>
+              <circle cx="294" cy="250" r="10" fill="#d94427" stroke="#18243b" stroke-width="3"/>
+              <path d="M184 250V310M294 250V310" stroke="#d94427" stroke-width="3" stroke-dasharray="7 6"/>
+              <text x="127" y="337" font-family="STIX Two Text, serif" font-size="27" font-weight="650" fill="#d94427">(−2, 0)</text>
+              <text x="258" y="337" font-family="STIX Two Text, serif" font-size="27" font-weight="650" fill="#d94427">(−1.5, 0)</text>
+              <text x="371" y="90" font-family="STIX Two Text, serif" font-size="25" font-style="italic" font-weight="650" fill="#1d55be">y = 2x² + 7x + 6</text>
+            </svg>
+            <figcaption class="diagram-caption">條線同 x-axis 相交嗰兩點，就係 equation = 0 嗰兩個 x。</figcaption>
+          </figure>
+
+          <div class="explanation">
+            <article class="worked-example">
+              <h3>例：2x² + 7x + 6 = 0</h3>
+              <p class="work-line">Desmos：<i>y</i> = 2<i>x</i>² + 7<i>x</i> + 6</p>
+              <p class="work-line">撳到 (−2, 0) 同 (−1.5, 0)</p>
+              <p class="work-line answer"><i>x</i> = −2, −1.5</p>
+            </article>
+            <p class="bracket-warning" style="margin-top:1.25rem"><strong>唔好亂套：</strong>如果題目問 discriminant、公式入面個 k、未知 coefficient，或者要 exact symbolic form，佢考緊另一個 concept；唔係淨係問 roots。</p>
+            <p class="warning">SAT 允許 Bluebook 內置 Desmos；但最新規則要求移除有解 equations 功能嘅 handheld programs。考試預設用 Desmos，唔依賴 TI‑84 solver app。 <a href="https://satsuite.collegeboard.org/in-school-assessments/calculator-policy">College Board policy</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson" id="mother-lines" aria-labelledby="motherLinesTitle">
+        <header class="lesson-head">
+          <div class="lesson-number">07</div>
           <div>
             <p class="section-kicker"><span class="status">Mother graph</span></p>
             <h2 id="motherLinesTitle">直線：升、反轉、搬高</h2>
