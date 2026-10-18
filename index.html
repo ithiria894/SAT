@@ -353,12 +353,12 @@
 
     .equation.small { font-size: clamp(1.45rem, 5vw, 3rem); }
 
-    .equation .h-mark {
+    .equation .vx-mark {
       color: var(--yellow);
       border-bottom: 3px solid currentColor;
     }
 
-    .equation .v-mark {
+    .equation .vy-mark {
       color: oklch(78% .16 35);
       border-bottom: 3px solid currentColor;
     }
@@ -783,8 +783,20 @@
       .lesson { padding: 1.5rem 0; break-before: page; }
       .lesson h2 { font-size: 28pt; }
       .equation { font-size: 25pt; }
+      .step .math { font-size: 16pt; }
       .vertex-grid, .method-grid, .triangle-grid { grid-template-columns: 1fr 1fr; }
       .solution-board { grid-template-columns: repeat(3, 1fr); }
+      #convert { padding-block: 1.1rem; }
+      #convert .lesson-head { margin-bottom: 1.1rem; }
+      #convert .formula-stage { margin-bottom: 1rem; padding: 1rem 1.25rem; }
+      #convert .step-tape { margin-bottom: 1rem; }
+      #convert .step { padding: .8rem; }
+      #convert .method-grid { gap: 1rem; }
+      #convert .worked-example,
+      #convert .calculator { padding: 1rem; }
+      #convert .worked-example h3,
+      #convert .calculator h3 { margin-bottom: .6rem; }
+      #convert .work-line { margin-bottom: .35rem; }
       #square-solutions { padding-block: 1.1rem; }
       #square-solutions .lesson-head { margin-bottom: 1.1rem; }
       #square-solutions .formula-stage { margin-bottom: 1rem; padding: 1rem 1.25rem; }
@@ -828,15 +840,15 @@
           <p class="eyebrow"><span>Locked</span> 最快版本 · 2026-10-17</p>
           <h1 id="pageTitle">少啲腦內轉換。快啲落筆。</h1>
           <p class="hero-lead">做題時擺喺側邊。先睇圖認題型，再照機械步驟做；理解過嘅嘢，唔需要每次重新發明。</p>
-          <div class="hero-formula" aria-label="y equals a times open bracket x minus h close bracket squared plus v">
-            <i>y</i> = <i>a</i>[<i>x</i> − (<span class="h-mark"><i>h</i></span>)]² + <span class="v-mark"><i>v</i></span>
+          <div class="hero-formula" aria-label="y equals a times open bracket x minus vertex x close bracket squared plus vertex y">
+            <i>y</i> = <i>a</i>[<i>x</i> − (<span class="vx-mark"><i>V</i><sub>x</sub></span>)]² + <span class="vy-mark"><i>V</i><sub>y</sub></span>
           </div>
         </div>
 
         <figure class="hero-visual" aria-labelledby="heroGraphCaption">
           <svg viewBox="0 0 520 470" role="img" aria-labelledby="heroGraphTitle heroGraphDesc">
             <title id="heroGraphTitle">Vertex form 拋物線示意圖</title>
-            <desc id="heroGraphDesc">藍色拋物線最低點位於 h, v。虛線由最低點連接 x 軸的 h 和 y 軸的 v。</desc>
+            <desc id="heroGraphDesc">藍色拋物線最低點位於 Vx, Vy。虛線由最低點連接 x 軸的 Vx 和 y 軸的 Vy。</desc>
             <defs>
               <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
                 <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#1d55be" stroke-opacity=".16" stroke-width="1"/>
@@ -852,13 +864,13 @@
             <path d="M145 88 C196 332 246 382 302 258 C340 173 373 93 444 66" fill="none" stroke="#1d55be" stroke-width="9" stroke-linecap="round"/>
             <path d="M272 307V330M130 307H272" fill="none" stroke="#d94427" stroke-width="3" stroke-dasharray="8 7"/>
             <circle cx="272" cy="307" r="10" fill="#d94427" stroke="#18243b" stroke-width="3"/>
-            <text x="285" y="295" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="21" fill="#18243b">vertex (h, v)</text>
-            <text x="263" y="359" font-family="STIX Two Text, serif" font-style="italic" font-weight="650" font-size="29" fill="#1d55be">h</text>
-            <text x="95" y="315" font-family="STIX Two Text, serif" font-style="italic" font-weight="650" font-size="29" fill="#d94427">v</text>
+            <text x="285" y="295" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="21" fill="#18243b">vertex (Vx, Vy)</text>
+            <text x="254" y="359" font-family="STIX Two Text, serif" font-style="italic" font-weight="650" font-size="29" fill="#1d55be">Vx</text>
+            <text x="84" y="315" font-family="STIX Two Text, serif" font-style="italic" font-weight="650" font-size="29" fill="#d94427">Vy</text>
             <path d="M388 391C348 374 318 354 285 320" fill="none" stroke="#1d55be" stroke-width="3" marker-end="url(#arrowBlue)"/>
             <text x="309" y="420" font-family="Bricolage Grotesque, sans-serif" font-weight="750" font-size="17" fill="#1d55be">括號 = 0 嗰刻</text>
           </svg>
-          <figcaption id="heroGraphCaption" class="annotation">h 決定左右<br>v 決定上下</figcaption>
+          <figcaption id="heroGraphCaption" class="annotation">Vx 決定左右<br>Vy 決定上下</figcaption>
         </figure>
       </section>
 
@@ -881,18 +893,18 @@
 
         <div class="formula-stage">
           <span class="formula-label">唯一預設寫法</span>
-          <div class="equation"><i>y</i> = <i>a</i>[<i>x</i> − (<span class="h-mark"><i>h</i></span>)]² + <span class="v-mark"><i>v</i></span></div>
-          <div class="equation small">vertex = (<span class="h-mark"><i>h</i></span>, <span class="v-mark"><i>v</i></span>)</div>
+          <div class="equation"><i>y</i> = <i>a</i>[<i>x</i> − (<span class="vx-mark"><i>V</i><sub>x</sub></span>)]² + <span class="vy-mark"><i>V</i><sub>y</sub></span></div>
+          <div class="equation small">vertex = (<span class="vx-mark"><i>V</i><sub>x</sub></span>, <span class="vy-mark"><i>V</i><sub>y</sub></span>)</div>
         </div>
 
         <div class="vertex-grid">
           <div class="explanation">
             <ol class="mechanical">
-              <li>將 <strong>h 連符號</strong>原封不動放入 <strong>x − (h)</strong>。</li>
-              <li>將 <strong>v 連符號</strong>原封不動放喺括號外。</li>
+              <li>將 <strong>Vx 連符號</strong>原封不動放入 <strong>x − (Vx)</strong>。</li>
+              <li>將 <strong>Vy 連符號</strong>原封不動放喺括號外。</li>
               <li>寫完先處理雙負號；唔好提前心算。</li>
             </ol>
-            <div class="ink-note">Vertex = (−4, 2) → 先寫 x − (−4)，最後先變 x + 4。</div>
+            <div class="ink-note">試題寫 h, k，就翻譯成 Vx, Vy。Vertex = (−4, 2) → 先寫 x − (−4)，最後先變 x + 4。</div>
 
             <div class="sign-lane" aria-label="Vertex 符號例子">
               <div class="sign-row"><strong>(3, −5)</strong><span>a[x − (3)]² − 5</span></div>
@@ -903,7 +915,7 @@
 
           <figure class="diagram-panel">
             <svg viewBox="0 0 540 450" role="img" aria-labelledby="signTitle signDesc">
-              <title id="signTitle">將負四原封不動代入 x 減 h</title>
+              <title id="signTitle">將負四原封不動代入 x 減 Vx</title>
               <desc id="signDesc">Vertex 負四、二先寫成 x 減負四，然後雙負號變成 x 加四。</desc>
               <rect x="24" y="28" width="492" height="92" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
               <text x="50" y="67" font-family="Bricolage Grotesque, sans-serif" font-size="18" font-weight="800" fill="#18243b">VERTEX</text>
@@ -925,7 +937,7 @@
           <span class="formula-label">已知 vertex 同另一點，求 a</span>
           <div class="equation small">
             <i>a</i> =
-            <span class="frac"><span><i>y</i>₁ − <i>v</i></span><span>(<i>x</i>₁ − <i>h</i>)²</span></span>
+            <span class="frac"><span><i>y</i>₁ − <i>V</i><sub>y</sub></span><span>(<i>x</i>₁ − <i>V</i><sub>x</sub>)²</span></span>
           </div>
         </div>
       </section>
@@ -948,15 +960,15 @@
         <div class="step-tape" aria-label="Standard form 轉 Vertex form 三步">
           <div class="step">
             <b>Step 01 · 左右</b>
-            <span class="math"><i>H</i> = −<span class="frac"><span><i>b</i></span><span>2<i>a</i></span></span></span>
+            <span class="math"><i>V</i><sub>x</sub> = −<span class="frac"><span><i>b</i></span><span>2<i>a</i></span></span></span>
           </div>
           <div class="step">
             <b>Step 02 · 上下</b>
-            <span class="math"><i>V</i> = <i>f</i>(<i>H</i>)</span>
+            <span class="math"><i>V</i><sub>y</sub> = <i>f</i>(<i>V</i><sub>x</sub>)</span>
           </div>
           <div class="step">
             <b>Step 03 · 寫答案</b>
-            <span class="math"><i>f</i>(<i>x</i>) = <i>a</i>(<i>x</i> − <i>H</i>)² + <i>V</i></span>
+            <span class="math"><i>f</i>(<i>x</i>) = <i>a</i>(<i>x</i> − <i>V</i><sub>x</sub>)² + <i>V</i><sub>y</sub></span>
           </div>
         </div>
 
@@ -964,18 +976,18 @@
           <article class="worked-example explanation">
             <h3>熟口熟面嗰條</h3>
             <p class="work-line"><i>f</i>(<i>x</i>) = −3<i>x</i>² − 12<i>x</i> + 5</p>
-            <p class="work-line"><i>H</i> = −(−12) ÷ [2(−3)] = −2</p>
-            <p class="work-line"><i>V</i> = <i>f</i>(−2) = −3(4) + 24 + 5 = 17</p>
+            <p class="work-line"><i>V</i><sub>x</sub> = −(−12) ÷ [2(−3)] = −2</p>
+            <p class="work-line"><i>V</i><sub>y</sub> = <i>f</i>(−2) = −3(4) + 24 + 5 = 17</p>
             <p class="work-line answer"><i>f</i>(<i>x</i>) = −3(<i>x</i> + 2)² + 17</p>
           </article>
 
           <aside class="calculator explanation" aria-label="TI-84 VERTEX 程式">
             <h3>TI-84 / VERTEX</h3>
             <pre>Prompt A,B,C
-−B/(2A)→H
-A×H²+B×H+C→V
-Disp "H=",H
-Disp "V=",V</pre>
+−B/(2A)→X
+A×X²+B×X+C→Y
+Disp "VX=",X
+Disp "VY=",Y</pre>
             <div class="warning">負數用最下面嗰粒 (−)；減法先用普通 −。</div>
           </aside>
         </div>
