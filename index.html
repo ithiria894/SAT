@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4eedf">
+  <meta name="description" content="Nicole 的 SAT Math 視覺公式速查表：Vertex form、tangent、similar triangles。">
+  <title>SAT Math｜Locked Formula Sheet</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2318243b'/%3E%3Cpath d='M12 48Q20 8 32 42Q44 8 52 48' fill='none' stroke='%23f1d554' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:opsz,wght@6..72,500..800&family=STIX+Two+Text:ital,wght@0,500;0,650;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: oklch(94.5% 0.025 84);
+      --paper-deep: oklch(89% 0.04 82);
+      --ink: oklch(22% 0.045 257);
+      --muted: oklch(43% 0.035 254);
+      --rule: oklch(30% 0.035 255);
+      --blue: oklch(51% 0.205 257);
+      --blue-soft: oklch(86% 0.075 250);
+      --red: oklch(59% 0.205 30);
+      --red-soft: oklch(88% 0.075 39);
+      --green: oklch(54% 0.12 156);
+      --green-soft: oklch(88% 0.06 152);
+      --yellow: oklch(87% 0.145 91);
+      --font-ui: "Bricolage Grotesque", "Avenir Next", sans-serif;
+      --font-display: "Newsreader", Georgia, serif;
+      --font-math: "STIX Two Text", "Times New Roman", serif;
+      --content: 72rem;
+      --line: 1.5px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      min-width: 20rem;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, transparent 0 1.45rem, color-mix(in oklch, var(--red) 34%, transparent) 1.45rem 1.52rem, transparent 1.52rem),
+        repeating-linear-gradient(0deg, transparent 0 1.48rem, color-mix(in oklch, var(--blue) 9%, transparent) 1.48rem 1.53rem),
+        var(--paper);
+      font-family: var(--font-ui);
+      font-size: 1rem;
+      line-height: 1.5;
+      font-kerning: normal;
+      padding-bottom: max(3rem, env(safe-area-inset-bottom));
+    }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    a { color: inherit; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: .75rem;
+      left: .75rem;
+      transform: translateY(-200%);
+      background: var(--ink);
+      color: var(--paper);
+      padding: .7rem 1rem;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    :focus-visible {
+      outline: 3px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .topbar {
+      position: sticky;
+      z-index: 30;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 4rem;
+      padding: .65rem max(1.25rem, env(safe-area-inset-left));
+      color: var(--paper);
+      background: var(--ink);
+      border-bottom: 4px solid var(--blue);
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: .7rem;
+      white-space: nowrap;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      display: none;
+      color: var(--blue-soft);
+      font-size: .76rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .actions { display: flex; gap: .5rem; }
+
+    .action {
+      min-height: 2.75rem;
+      border: 1px solid color-mix(in oklch, var(--paper) 40%, transparent);
+      border-radius: 0;
+      padding: .55rem .8rem;
+      color: var(--paper);
+      background: transparent;
+      font: 700 .78rem/1 var(--font-ui);
+      letter-spacing: .04em;
+      cursor: pointer;
+    }
+
+    .action[aria-pressed="true"] {
+      color: var(--ink);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .action:hover { border-color: var(--paper); }
+
+    .layout {
+      width: min(100%, calc(var(--content) + 12rem));
+      margin-inline: auto;
+    }
+
+    .rail { display: none; }
+
+    main {
+      width: min(calc(100% - 2rem), var(--content));
+      margin-inline: auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 4rem);
+      padding: clamp(3rem, 9vw, 7rem) 0 4rem;
+      display: grid;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 1.5rem -1rem auto;
+      height: 11rem;
+      background: var(--yellow);
+      clip-path: polygon(2% 12%, 100% 0, 96% 92%, 0 100%);
+      opacity: .62;
+    }
+
+    .eyebrow, .section-kicker {
+      margin: 0 0 .8rem;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow span, .status {
+      display: inline-block;
+      color: var(--paper);
+      background: var(--green);
+      padding: .2rem .45rem;
+      margin-right: .5rem;
+      transform: rotate(-1.5deg);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 11ch;
+      margin-bottom: 1rem;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 11vw, 7.25rem);
+      font-weight: 750;
+      line-height: .88;
+      letter-spacing: -.055em;
+    }
+
+    .hero-lead {
+      max-width: 34rem;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      font-weight: 550;
+    }
+
+    .hero-formula {
+      display: inline-block;
+      max-width: 100%;
+      overflow-x: auto;
+      padding: .55rem .85rem .35rem;
+      font-family: var(--font-math);
+      font-size: clamp(1.8rem, 5vw, 3.4rem);
+      font-weight: 650;
+      line-height: 1.1;
+      white-space: nowrap;
+      background: var(--paper);
+      border: 3px solid var(--ink);
+      box-shadow: .55rem .55rem 0 var(--blue);
+      transform: rotate(-.35deg);
+    }
+
+    .hero-visual {
+      position: relative;
+      width: min(100%, 34rem);
+      justify-self: center;
+    }
+
+    .hero-visual svg { display: block; width: 100%; height: auto; }
+
+    .annotation {
+      position: absolute;
+      right: 0;
+      bottom: .5rem;
+      max-width: 11rem;
+      padding: .5rem .65rem;
+      color: var(--paper);
+      background: var(--red);
+      font: 750 .82rem/1.25 var(--font-ui);
+      transform: rotate(2.3deg);
+    }
+
+    .fact-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 0 clamp(4rem, 10vw, 8rem);
+      border-block: 2px solid var(--ink);
+    }
+
+    .fact {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .fact:nth-last-child(-n+2) { border-bottom: 0; }
+    .fact:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--ink); }
+
+    .fact strong {
+      display: block;
+      font: 750 1.55rem/1 var(--font-display);
+    }
+
+    .fact span { color: var(--muted); font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
+
+    .lesson {
+      position: relative;
+      padding: clamp(3.5rem, 9vw, 7rem) 0;
+      border-top: 3px solid var(--ink);
+      scroll-margin-top: 4.5rem;
+    }
+
+    .lesson-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+      margin-bottom: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .lesson-number {
+      font-family: var(--font-display);
+      font-size: clamp(3.8rem, 12vw, 8rem);
+      font-weight: 800;
+      line-height: .7;
+      color: var(--blue);
+      letter-spacing: -.06em;
+    }
+
+    .lesson h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 7vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.045em;
+    }
+
+    .lesson-subtitle {
+      grid-column: 2;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .status {
+      margin: .6rem 0 0;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .formula-stage {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: clamp(2rem, 5vw, 4rem);
+      padding: clamp(1.4rem, 5vw, 3rem);
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .formula-stage::after {
+      content: "LOCKED";
+      position: absolute;
+      right: -1.7rem;
+      bottom: .65rem;
+      color: var(--yellow);
+      font-size: clamp(2.8rem, 13vw, 7.5rem);
+      font-weight: 800;
+      line-height: .72;
+      letter-spacing: -.06em;
+      opacity: .08;
+    }
+
+    .formula-label {
+      display: block;
+      margin-bottom: .5rem;
+      color: var(--blue-soft);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .equation {
+      position: relative;
+      z-index: 1;
+      overflow-x: auto;
+      padding: .2rem 0;
+      font-family: var(--font-math);
+      font-size: clamp(1.75rem, 7vw, 4.6rem);
+      font-weight: 650;
+      line-height: 1.25;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .equation.small { font-size: clamp(1.45rem, 5vw, 3rem); }
+
+    .equation .h-mark {
+      color: var(--yellow);
+      border-bottom: 3px solid currentColor;
+    }
+
+    .equation .v-mark {
+      color: oklch(78% .16 35);
+      border-bottom: 3px solid currentColor;
+    }
+
+    .frac {
+      display: inline-grid;
+      grid-template-rows: auto auto;
+      vertical-align: -.32em;
+      margin-inline: .08em;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .frac > span:first-child { padding: 0 .15em .08em; border-bottom: .07em solid currentColor; }
+    .frac > span:last-child { padding: .08em .15em 0; }
+
+    .vertex-grid, .method-grid, .triangle-grid {
+      display: grid;
+      gap: clamp(1.5rem, 5vw, 3rem);
+    }
+
+    .diagram-panel {
+      min-width: 0;
+      padding: 1rem;
+      background: color-mix(in oklch, var(--paper) 82%, var(--blue-soft));
+      border: 2px solid var(--ink);
+    }
+
+    .diagram-panel svg { width: 100%; height: auto; display: block; }
+
+    .diagram-caption {
+      margin: .75rem 0 0;
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 650;
+    }
+
+    .mechanical {
+      counter-reset: moves;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mechanical li {
+      counter-increment: moves;
+      position: relative;
+      padding: 1rem 0 1rem 3.5rem;
+      border-top: 1.5px solid var(--ink);
+      font-weight: 600;
+    }
+
+    .mechanical li:last-child { border-bottom: 1.5px solid var(--ink); }
+
+    .mechanical li::before {
+      content: counter(moves, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: .82rem;
+      color: var(--blue);
+      font: 800 1.45rem/1 var(--font-display);
+    }
+
+    .ink-note {
+      margin-top: 1.5rem;
+      padding: .85rem 1rem;
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      font-weight: 750;
+      transform: rotate(-.4deg);
+    }
+
+    .sign-lane {
+      display: grid;
+      gap: 0;
+      margin-top: 2rem;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+    }
+
+    .sign-row {
+      display: grid;
+      grid-template-columns: 5.6rem 1fr;
+      align-items: center;
+      min-width: 0;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .sign-row:last-child { border-bottom: 0; }
+
+    .sign-row strong {
+      align-self: stretch;
+      display: grid;
+      place-items: center;
+      padding: .85rem .4rem;
+      color: var(--paper);
+      background: var(--blue);
+      font-family: var(--font-math);
+      font-size: 1.35rem;
+    }
+
+    .sign-row span {
+      min-width: 0;
+      overflow-x: auto;
+      padding: .85rem 1rem;
+      font-family: var(--font-math);
+      font-size: clamp(1.05rem, 4vw, 1.4rem);
+      white-space: nowrap;
+    }
+
+    .step-tape {
+      display: grid;
+      margin-bottom: 2.5rem;
+      border: 2px solid var(--ink);
+    }
+
+    .step {
+      position: relative;
+      min-width: 0;
+      padding: 1.35rem 1rem 1.45rem;
+      background: var(--paper);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .step:last-child { border-bottom: 0; background: var(--blue-soft); }
+
+    .step b {
+      display: block;
+      margin-bottom: .4rem;
+      color: var(--red);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .step .math {
+      display: block;
+      overflow-x: auto;
+      font: 650 clamp(1.5rem, 6vw, 2.3rem)/1.25 var(--font-math);
+      white-space: nowrap;
+    }
+
+    .worked-example {
+      position: relative;
+      padding: clamp(1.25rem, 4vw, 2rem);
+      background: var(--red-soft);
+      border: 2px solid var(--ink);
+    }
+
+    .worked-example h3, .calculator h3 {
+      margin-bottom: 1rem;
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+    }
+
+    .work-line {
+      margin-bottom: .65rem;
+      font: 600 clamp(1.1rem, 4vw, 1.45rem)/1.4 var(--font-math);
+    }
+
+    .work-line:last-child { margin-bottom: 0; }
+
+    .work-line.answer {
+      display: inline-block;
+      padding: .25rem .5rem;
+      background: var(--yellow);
+      border-bottom: 3px solid var(--ink);
+      font-size: clamp(1.35rem, 5vw, 2rem);
+    }
+
+    .calculator {
+      position: relative;
+      padding: 1.2rem;
+      background: oklch(34% .025 251);
+      border: .5rem solid var(--ink);
+      color: oklch(90% .13 137);
+      box-shadow: inset 0 0 0 2px oklch(66% .035 251);
+    }
+
+    .calculator h3 { color: var(--paper); }
+
+    .calculator pre {
+      overflow-x: auto;
+      margin: 0;
+      font: 650 1rem/1.65 "Courier New", monospace;
+      white-space: pre;
+    }
+
+    .calculator::after {
+      content: "TI–84";
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      color: oklch(70% .02 250);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .warning {
+      margin-top: 1rem;
+      padding: .75rem;
+      color: var(--ink);
+      background: var(--yellow);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .triangle-key {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 1rem;
+      border: 1.5px solid var(--ink);
+    }
+
+    .triangle-key span {
+      padding: .6rem .25rem;
+      text-align: center;
+      font-size: .7rem;
+      font-weight: 800;
+      border-right: 1px solid var(--ink);
+    }
+
+    .triangle-key span:last-child { border-right: 0; }
+
+    .dot {
+      display: inline-block;
+      width: .7rem;
+      height: .7rem;
+      margin-right: .25rem;
+      border-radius: 50%;
+      vertical-align: -.05rem;
+    }
+
+    .dot.red { background: var(--red); }
+    .dot.blue { background: var(--blue); }
+    .dot.green { background: var(--green); }
+
+    .ratio-board {
+      margin-top: 2rem;
+      padding: 1.1rem;
+      color: var(--paper);
+      background: var(--blue);
+      border: 2px solid var(--ink);
+    }
+
+    .ratio-board .equation { font-size: clamp(1.3rem, 5.5vw, 3rem); }
+
+    .not-yet {
+      margin: 5rem 0 2rem;
+      padding: 1.25rem;
+      border: 2px dashed var(--muted);
+      color: var(--muted);
+      background: color-mix(in oklch, var(--paper) 88%, var(--paper-deep));
+    }
+
+    .not-yet strong { color: var(--ink); }
+
+    footer {
+      margin-top: 3rem;
+      padding: 2rem 0 1rem;
+      border-top: 2px solid var(--ink);
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    body.formula-only .explanation,
+    body.formula-only .worked-example,
+    body.formula-only .calculator,
+    body.formula-only .not-yet,
+    body.formula-only .lesson-subtitle,
+    body.formula-only .diagram-caption,
+    body.formula-only .ink-note { display: none; }
+
+    body.formula-only .lesson { padding-block: 2rem; }
+    body.formula-only .formula-stage { margin-bottom: 1.25rem; }
+
+    @media (min-width: 42rem) {
+      .brand span { display: inline; }
+      .hero { grid-template-columns: 1.05fr .95fr; }
+      .fact-strip { grid-template-columns: repeat(4, 1fr); }
+      .fact { padding: 1rem; border-bottom: 0; border-left: 1px solid var(--ink); }
+      .fact:first-child { border-left: 0; padding-left: 0; }
+      .vertex-grid, .method-grid, .triangle-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+      .step-tape { grid-template-columns: repeat(3, 1fr); }
+      .step { border-bottom: 0; border-right: 2px solid var(--ink); }
+      .step:last-child { border-right: 0; }
+    }
+
+    @media (min-width: 64rem) {
+      .layout {
+        display: grid;
+        grid-template-columns: 10rem minmax(0, var(--content));
+        gap: 2rem;
+        justify-content: center;
+      }
+
+      .rail {
+        display: block;
+        position: sticky;
+        top: 6rem;
+        align-self: start;
+        padding-top: 2rem;
+      }
+
+      .rail a {
+        display: block;
+        padding: .75rem 0;
+        color: var(--muted);
+        border-bottom: 1px solid color-mix(in oklch, var(--ink) 26%, transparent);
+        font-size: .78rem;
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      .rail a::before { content: attr(data-no); display: block; color: var(--blue); font: 750 1.5rem/1 var(--font-display); }
+      .rail a.active { color: var(--ink); }
+      .rail a.active::before { color: var(--red); }
+      main { width: 100%; }
+    }
+
+    @media (pointer: coarse) {
+      .action { min-height: 3rem; padding-inline: 1rem; }
+      .rail a { min-height: 3rem; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .lesson-number, .formula-stage, .diagram-panel { transition: transform .28s cubic-bezier(.22, 1, .36, 1); }
+      @media (hover: hover) {
+        .lesson:hover .lesson-number { transform: translateY(-.15rem) rotate(-2deg); }
+        .diagram-panel:hover { transform: translateY(-.2rem); }
+      }
+    }
+
+    @media print {
+      @page { size: letter; margin: .45in; }
+      body { background: var(--paper); font-size: 10pt; }
+      .topbar, .rail, .actions, .hero::before, .annotation { display: none !important; }
+      .layout { display: block; width: 100%; }
+      main { width: 100%; }
+      .hero { min-height: auto; padding: 0 0 1.5rem; grid-template-columns: 1fr 1fr; }
+      h1 { font-size: 38pt; }
+      .hero-formula { font-size: 25pt; box-shadow: .2rem .2rem 0 var(--blue); }
+      .lesson { padding: 1.5rem 0; break-before: page; }
+      .lesson h2 { font-size: 28pt; }
+      .equation { font-size: 25pt; }
+      .vertex-grid, .method-grid, .triangle-grid { grid-template-columns: 1fr 1fr; }
+      .not-yet { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳去公式</a>
+
+  <header class="topbar">
+    <div class="brand">
+      <strong>SAT Math / Locked</strong>
+      <span>Nicole's working sheet</span>
+    </div>
+    <div class="actions" aria-label="顯示選項">
+      <button class="action" id="modeToggle" type="button" aria-pressed="false">只睇公式</button>
+      <button class="action" type="button" onclick="window.print()">列印</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="rail" aria-label="公式索引">
+      <a href="#vertex" data-no="01">Vertex form</a>
+      <a href="#convert" data-no="02">Standard → Vertex</a>
+      <a href="#tangent" data-no="03">Tangent</a>
+      <a href="#similar" data-no="04">Similar triangles</a>
+    </nav>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="pageTitle">
+        <div>
+          <p class="eyebrow"><span>Locked</span> 最快版本 · 2026-10-17</p>
+          <h1 id="pageTitle">少啲腦內轉換。快啲落筆。</h1>
+          <p class="hero-lead">做題時擺喺側邊。先睇圖認題型，再照機械步驟做；理解過嘅嘢，唔需要每次重新發明。</p>
+          <div class="hero-formula" aria-label="y equals a times open bracket x minus h close bracket squared plus v">
+            <i>y</i> = <i>a</i>[<i>x</i> − (<span class="h-mark"><i>h</i></span>)]² + <span class="v-mark"><i>v</i></span>
+          </div>
+        </div>
+
+        <figure class="hero-visual" aria-labelledby="heroGraphCaption">
+          <svg viewBox="0 0 520 470" role="img" aria-labelledby="heroGraphTitle heroGraphDesc">
+            <title id="heroGraphTitle">Vertex form 拋物線示意圖</title>
+            <desc id="heroGraphDesc">藍色拋物線最低點位於 h, v。虛線由最低點連接 x 軸的 h 和 y 軸的 v。</desc>
+            <defs>
+              <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+                <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#1d55be" stroke-opacity=".16" stroke-width="1"/>
+              </pattern>
+              <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L7,3 z" fill="#1d55be"/>
+              </marker>
+            </defs>
+            <rect x="28" y="22" width="464" height="414" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
+            <rect x="28" y="22" width="464" height="414" fill="url(#grid)"/>
+            <path d="M66 330H470M130 408V52" stroke="#18243b" stroke-width="3"/>
+            <path d="M130 52l-7 13h14zM470 330l-13-7v14z" fill="#18243b"/>
+            <path d="M145 88 C196 332 246 382 302 258 C340 173 373 93 444 66" fill="none" stroke="#1d55be" stroke-width="9" stroke-linecap="round"/>
+            <path d="M272 307V330M130 307H272" fill="none" stroke="#d94427" stroke-width="3" stroke-dasharray="8 7"/>
+            <circle cx="272" cy="307" r="10" fill="#d94427" stroke="#18243b" stroke-width="3"/>
+            <text x="285" y="295" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="21" fill="#18243b">vertex (h, v)</text>
+            <text x="263" y="359" font-family="STIX Two Text, serif" font-style="italic" font-weight="650" font-size="29" fill="#1d55be">h</text>
+            <text x="95" y="315" font-family="STIX Two Text, serif" font-style="italic" font-weight="650" font-size="29" fill="#d94427">v</text>
+            <path d="M388 391C348 374 318 354 285 320" fill="none" stroke="#1d55be" stroke-width="3" marker-end="url(#arrowBlue)"/>
+            <text x="309" y="420" font-family="Bricolage Grotesque, sans-serif" font-weight="750" font-size="17" fill="#1d55be">括號 = 0 嗰刻</text>
+          </svg>
+          <figcaption id="heroGraphCaption" class="annotation">h 決定左右<br>v 決定上下</figcaption>
+        </figure>
+      </section>
+
+      <div class="fact-strip" aria-label="學習狀態">
+        <div class="fact"><strong>04</strong><span>已鎖定方法</span></div>
+        <div class="fact"><strong>108</strong><span>聽日題目</span></div>
+        <div class="fact"><strong>02</strong><span>聽日試卷</span></div>
+        <div class="fact"><strong>Circle</strong><span>未學完 · 唔亂加</span></div>
+      </div>
+
+      <section class="lesson" id="vertex" aria-labelledby="vertexTitle">
+        <header class="lesson-head">
+          <div class="lesson-number">01</div>
+          <div>
+            <p class="section-kicker"><span class="status">Locked</span></p>
+            <h2 id="vertexTitle">Vertex form</h2>
+          </div>
+          <p class="lesson-subtitle">目的：一眼由方程式讀出轉折點，或者由 vertex 寫返條式。核心係原封不動代入，唔喺腦入面玩正負號。</p>
+        </header>
+
+        <div class="formula-stage">
+          <span class="formula-label">唯一預設寫法</span>
+          <div class="equation"><i>y</i> = <i>a</i>[<i>x</i> − (<span class="h-mark"><i>h</i></span>)]² + <span class="v-mark"><i>v</i></span></div>
+          <div class="equation small">vertex = (<span class="h-mark"><i>h</i></span>, <span class="v-mark"><i>v</i></span>)</div>
+        </div>
+
+        <div class="vertex-grid">
+          <div class="explanation">
+            <ol class="mechanical">
+              <li>將 <strong>h 連符號</strong>原封不動放入 <strong>x − (h)</strong>。</li>
+              <li>將 <strong>v 連符號</strong>原封不動放喺括號外。</li>
+              <li>寫完先處理雙負號；唔好提前心算。</li>
+            </ol>
+            <div class="ink-note">Vertex = (−4, 2) → 先寫 x − (−4)，最後先變 x + 4。</div>
+
+            <div class="sign-lane" aria-label="Vertex 符號例子">
+              <div class="sign-row"><strong>(3, −5)</strong><span>a[x − (3)]² − 5</span></div>
+              <div class="sign-row"><strong>(−4, 2)</strong><span>a[x − (−4)]² + 2</span></div>
+              <div class="sign-row"><strong>(0, 7)</strong><span>a[x − (0)]² + 7</span></div>
+            </div>
+          </div>
+
+          <figure class="diagram-panel">
+            <svg viewBox="0 0 540 450" role="img" aria-labelledby="signTitle signDesc">
+              <title id="signTitle">將負四原封不動代入 x 減 h</title>
+              <desc id="signDesc">Vertex 負四、二先寫成 x 減負四，然後雙負號變成 x 加四。</desc>
+              <rect x="24" y="28" width="492" height="92" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
+              <text x="50" y="67" font-family="Bricolage Grotesque, sans-serif" font-size="18" font-weight="800" fill="#18243b">VERTEX</text>
+              <text x="50" y="101" font-family="STIX Two Text, serif" font-size="35" font-weight="650" fill="#18243b">(−4, 2)</text>
+              <path d="M135 141V183" stroke="#1d55be" stroke-width="4"/>
+              <path d="M126 174l9 14 9-14" fill="none" stroke="#1d55be" stroke-width="4"/>
+              <rect x="24" y="198" width="492" height="92" fill="#d9e6ff" stroke="#18243b" stroke-width="3"/>
+              <text x="48" y="254" font-family="STIX Two Text, serif" font-size="39" font-weight="650" fill="#18243b">y = a[x − (−4)]² + 2</text>
+              <path d="M270 308V345" stroke="#d94427" stroke-width="4"/>
+              <path d="M261 336l9 14 9-14" fill="none" stroke="#d94427" stroke-width="4"/>
+              <rect x="24" y="361" width="492" height="68" fill="#f1d554" stroke="#18243b" stroke-width="3"/>
+              <text x="58" y="407" font-family="STIX Two Text, serif" font-size="38" font-weight="650" fill="#18243b">y = a(x + 4)² + 2</text>
+            </svg>
+            <figcaption class="diagram-caption">先抄，後化簡。呢個次序就係防止正負號出錯。</figcaption>
+          </figure>
+        </div>
+
+        <div class="formula-stage" style="margin-top:clamp(2rem,5vw,4rem)">
+          <span class="formula-label">已知 vertex 同另一點，求 a</span>
+          <div class="equation small">
+            <i>a</i> =
+            <span class="frac"><span><i>y</i>₁ − <i>v</i></span><span>(<i>x</i>₁ − <i>h</i>)²</span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson" id="convert" aria-labelledby="convertTitle">
+        <header class="lesson-head">
+          <div class="lesson-number">02</div>
+          <div>
+            <p class="section-kicker"><span class="status">Default route</span></p>
+            <h2 id="convertTitle">Standard → Vertex</h2>
+          </div>
+          <p class="lesson-subtitle">目的：由 ax² + bx + c 直接變成 vertex form。完整配方法只留作理解；平時計數用固定三步。</p>
+        </header>
+
+        <div class="formula-stage">
+          <span class="formula-label">輸入</span>
+          <div class="equation small"><i>f</i>(<i>x</i>) = <i>a x</i>² + <i>b x</i> + <i>c</i></div>
+        </div>
+
+        <div class="step-tape" aria-label="Standard form 轉 Vertex form 三步">
+          <div class="step">
+            <b>Step 01 · 左右</b>
+            <span class="math"><i>H</i> = −<span class="frac"><span><i>b</i></span><span>2<i>a</i></span></span></span>
+          </div>
+          <div class="step">
+            <b>Step 02 · 上下</b>
+            <span class="math"><i>V</i> = <i>f</i>(<i>H</i>)</span>
+          </div>
+          <div class="step">
+            <b>Step 03 · 寫答案</b>
+            <span class="math"><i>f</i>(<i>x</i>) = <i>a</i>(<i>x</i> − <i>H</i>)² + <i>V</i></span>
+          </div>
+        </div>
+
+        <div class="method-grid">
+          <article class="worked-example explanation">
+            <h3>熟口熟面嗰條</h3>
+            <p class="work-line"><i>f</i>(<i>x</i>) = −3<i>x</i>² − 12<i>x</i> + 5</p>
+            <p class="work-line"><i>H</i> = −(−12) ÷ [2(−3)] = −2</p>
+            <p class="work-line"><i>V</i> = <i>f</i>(−2) = −3(4) + 24 + 5 = 17</p>
+            <p class="work-line answer"><i>f</i>(<i>x</i>) = −3(<i>x</i> + 2)² + 17</p>
+          </article>
+
+          <aside class="calculator explanation" aria-label="TI-84 VERTEX 程式">
+            <h3>TI-84 / VERTEX</h3>
+            <pre>Prompt A,B,C
+−B/(2A)→H
+A×H²+B×H+C→V
+Disp "H=",H
+Disp "V=",V</pre>
+            <div class="warning">負數用最下面嗰粒 (−)；減法先用普通 −。</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="lesson" id="tangent" aria-labelledby="tangentTitle">
+        <header class="lesson-head">
+          <div class="lesson-number">03</div>
+          <div>
+            <p class="section-kicker"><span class="status">Locked</span></p>
+            <h2 id="tangentTitle">Tangent</h2>
+          </div>
+          <p class="lesson-subtitle">目的：指定一隻角之後，準確搵出 opposite 同 adjacent。唔背長邊短邊，因為長短會變。</p>
+        </header>
+
+        <div class="formula-stage">
+          <span class="formula-label">唯一比例</span>
+          <div class="equation">
+            tan <i>θ</i> =
+            <span class="frac"><span>opposite</span><span>adjacent</span></span>
+          </div>
+        </div>
+
+        <div class="triangle-grid">
+          <figure class="diagram-panel">
+            <svg viewBox="0 0 560 440" role="img" aria-labelledby="tanTitle tanDesc">
+              <title id="tanTitle">直角三角形 tangent 三條邊</title>
+              <desc id="tanDesc">角 theta 左邊，紅色直邊是 opposite，藍色底邊是 adjacent，綠色斜邊是 hypotenuse。</desc>
+              <path d="M86 354H470L86 74Z" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
+              <path d="M86 354H470" stroke="#1d55be" stroke-width="12" stroke-linecap="round"/>
+              <path d="M470 354L86 74" stroke="#23855f" stroke-width="12" stroke-linecap="round"/>
+              <path d="M86 74V354" stroke="#d94427" stroke-width="12" stroke-linecap="round"/>
+              <path d="M86 326H114V354" fill="none" stroke="#18243b" stroke-width="4"/>
+              <path d="M421 354A49 49 0 0 0 430 326" fill="none" stroke="#18243b" stroke-width="4"/>
+              <text x="399" y="340" font-family="STIX Two Text, serif" font-size="34" font-style="italic" font-weight="650" fill="#18243b">θ</text>
+              <text x="20" y="225" transform="rotate(-90 20 225)" font-family="Bricolage Grotesque, sans-serif" font-size="20" font-weight="800" fill="#d94427">OPPOSITE</text>
+              <text x="213" y="401" font-family="Bricolage Grotesque, sans-serif" font-size="20" font-weight="800" fill="#1d55be">ADJACENT</text>
+              <text x="280" y="165" transform="rotate(36 280 165)" font-family="Bricolage Grotesque, sans-serif" font-size="19" font-weight="800" fill="#23855f">HYPOTENUSE</text>
+              <text x="52" y="390" font-family="Bricolage Grotesque, sans-serif" font-size="17" font-weight="800" fill="#18243b">90°</text>
+            </svg>
+            <div class="triangle-key" aria-hidden="true">
+              <span><i class="dot red"></i>對面</span>
+              <span><i class="dot blue"></i>隔籬</span>
+              <span><i class="dot green"></i>刪走</span>
+            </div>
+            <figcaption class="diagram-caption">企喺 θ 望：紅色正對面，藍色掂住你，綠色對住 90°。</figcaption>
+          </figure>
+
+          <div class="explanation">
+            <ol class="mechanical">
+              <li>先搵 <strong>90°</strong>。</li>
+              <li>90° 正對面係 <strong>hypotenuse</strong>；先刪走，tan 唔用佢。</li>
+              <li>剩低兩條：指定角正對面係 <strong>opposite</strong>，放上面。</li>
+              <li>掂住指定角嗰條係 <strong>adjacent</strong>，放下面。</li>
+            </ol>
+            <div class="ink-note">最緊要：Adjacent 唔等於「短嗰條」。只睇位置，唔睇長短。</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson" id="similar" aria-labelledby="similarTitle">
+        <header class="lesson-head">
+          <div class="lesson-number">04</div>
+          <div>
+            <p class="section-kicker"><span class="status">Locked</span></p>
+            <h2 id="similarTitle">Similar triangles</h2>
+          </div>
+          <p class="lesson-subtitle">意思：形狀相同，只係整個三角形等比例放大或縮小。重點唔係背圖，而係保持配對同方向。</p>
+        </header>
+
+        <div class="triangle-grid">
+          <figure class="diagram-panel">
+            <svg viewBox="0 0 620 410" role="img" aria-labelledby="simTitle simDesc">
+              <title id="simTitle">兩個相似直角三角形</title>
+              <desc id="simDesc">左邊小三角形與右邊大三角形形狀相同。紅、藍、綠三組邊分別互相對應。</desc>
+              <path d="M54 327H250L54 160Z" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
+              <path d="M54 327H250" stroke="#1d55be" stroke-width="9"/>
+              <path d="M54 160V327" stroke="#d94427" stroke-width="9"/>
+              <path d="M250 327L54 160" stroke="#23855f" stroke-width="9"/>
+              <path d="M54 305H76V327" fill="none" stroke="#18243b" stroke-width="3"/>
+              <path d="M334 327H576L334 98Z" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
+              <path d="M334 327H576" stroke="#1d55be" stroke-width="9"/>
+              <path d="M334 98V327" stroke="#d94427" stroke-width="9"/>
+              <path d="M576 327L334 98" stroke="#23855f" stroke-width="9"/>
+              <path d="M334 305H356V327" fill="none" stroke="#18243b" stroke-width="3"/>
+              <text x="118" y="370" font-family="Bricolage Grotesque, sans-serif" font-size="19" font-weight="800" fill="#1d55be">small</text>
+              <text x="423" y="370" font-family="Bricolage Grotesque, sans-serif" font-size="19" font-weight="800" fill="#1d55be">same × scale</text>
+              <path d="M258 212H321" stroke="#18243b" stroke-width="3"/>
+              <path d="M309 201l14 11-14 11" fill="none" stroke="#18243b" stroke-width="3"/>
+              <text x="272" y="194" font-family="STIX Two Text, serif" font-size="25" font-weight="650" fill="#18243b">×k</text>
+            </svg>
+            <figcaption class="diagram-caption">同色邊互相對應；三條邊全部乘同一個 scale factor。</figcaption>
+          </figure>
+
+          <div class="explanation">
+            <ol class="mechanical">
+              <li>用相同角先搵 <strong>對應邊</strong>。</li>
+              <li>每個分數保持同方向：全程小/大，或者全程 A/B。</li>
+              <li>放入未知數，最後 <strong>cross multiply</strong>。</li>
+            </ol>
+            <div class="ink-note">唔需要兩個三角形一樣大；只需要角度相同、邊按同一比例變。</div>
+          </div>
+        </div>
+
+        <div class="ratio-board">
+          <span class="formula-label">固定比例 · 全程同方向</span>
+          <div class="equation">
+            <span class="frac"><span>小邊₁</span><span>對應大邊₁</span></span>
+            =
+            <span class="frac"><span>小邊₂</span><span>對應大邊₂</span></span>
+          </div>
+        </div>
+      </section>
+
+      <aside class="not-yet">
+        <strong>Circle 暫時唔放。</strong> 我哋未正式學完，所以唔會為咗份表睇落完整而塞一堆未理解嘅公式。學完、做過 variants、揀定版本先加入。
+      </aside>
+
+      <footer>
+        Nicole’s SAT Math working sheet · 理解 → 鎖定最快版本 → variants → 肌肉記憶
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('#modeToggle');
+    const storedMode = localStorage.getItem('sat-formula-mode');
+
+    function setFormulaMode(on) {
+      document.body.classList.toggle('formula-only', on);
+      toggle.setAttribute('aria-pressed', String(on));
+      toggle.textContent = on ? '顯示解釋' : '只睇公式';
+      localStorage.setItem('sat-formula-mode', on ? 'formula' : 'full');
+    }
+
+    setFormulaMode(storedMode === 'formula');
+    toggle.addEventListener('click', () => setFormulaMode(!document.body.classList.contains('formula-only')));
+
+    const railLinks = [...document.querySelectorAll('.rail a')];
+    const sections = railLinks.map(link => document.querySelector(link.getAttribute('href')));
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      railLinks.forEach(link => {
+        const active = link.getAttribute('href') === `#${visible.target.id}`;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-20% 0px -65% 0px', threshold: [0, .25, .6] });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
