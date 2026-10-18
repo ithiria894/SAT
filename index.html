@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f4eedf">
-  <meta name="description" content="Nicole 的 SAT Math 視覺公式速查表：Vertex form、tangent、similar triangles、平方方程解的數量。">
+  <meta name="description" content="Nicole 的 SAT Math 視覺公式速查表：Vertex form、tangent、similar triangles、平方方程解的數量、直線 mother graphs。">
   <title>SAT Math｜Locked Formula Sheet</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2318243b'/%3E%3Cpath d='M12 48Q20 8 32 42Q44 8 52 48' fill='none' stroke='%23f1d554' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -693,6 +693,68 @@
       font-size: 1.08em;
     }
 
+    .mother-grid {
+      display: grid;
+      margin-bottom: clamp(2rem, 5vw, 3.5rem);
+      border: 2px solid var(--ink);
+      background: var(--paper);
+    }
+
+    .mother-graph {
+      min-width: 0;
+      margin: 0;
+      padding: 1rem;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .mother-graph:last-child {
+      border-bottom: 0;
+      background: var(--yellow);
+    }
+
+    .mother-graph svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .mother-graph h3 {
+      margin-bottom: .2rem;
+      font-family: var(--font-math);
+      font-size: clamp(1.45rem, 6vw, 2.2rem);
+      line-height: 1;
+    }
+
+    .mother-graph p {
+      margin: 0 0 .75rem;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .graph-lock {
+      margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+      padding: 1rem;
+      color: var(--paper);
+      background: var(--blue);
+      border: 2px solid var(--ink);
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      font-weight: 750;
+    }
+
+    .graph-lock strong { color: var(--yellow); }
+
+    .graph-family-equation {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .2em .55em;
+      overflow: visible;
+      white-space: normal;
+    }
+
+    .graph-family-equation .join { color: var(--yellow); }
+
     .not-yet {
       margin: 5rem 0 2rem;
       padding: 1.25rem;
@@ -738,6 +800,9 @@
       }
       .solution-case:last-child { border-right: 0; }
       .solution-case .count { justify-self: start; }
+      .mother-grid { grid-template-columns: repeat(3, 1fr); }
+      .mother-graph { border-right: 2px solid var(--ink); border-bottom: 0; }
+      .mother-graph:last-child { border-right: 0; }
       .step-tape { grid-template-columns: repeat(3, 1fr); }
       .step { border-bottom: 0; border-right: 2px solid var(--ink); }
       .step:last-child { border-right: 0; }
@@ -803,6 +868,7 @@
       .step .math { font-size: 16pt; }
       .vertex-grid, .method-grid, .triangle-grid { grid-template-columns: 1fr 1fr; }
       .solution-board { grid-template-columns: repeat(3, 1fr); }
+      .mother-grid { grid-template-columns: repeat(3, 1fr); }
       #convert { padding-block: 1.1rem; }
       #convert .lesson-head { margin-bottom: 1.1rem; }
       #convert .formula-stage { margin-bottom: 1rem; padding: 1rem 1.25rem; }
@@ -824,6 +890,23 @@
       #square-solutions .worked-example { padding: 1rem; }
       #square-solutions .mechanical li { padding-block: .65rem; }
       #square-solutions .bracket-warning { padding: .7rem; }
+      #mother-lines { padding-block: 1rem; }
+      #mother-lines .lesson-head { margin-bottom: .75rem; }
+      #mother-lines .formula-stage { margin-bottom: .7rem; padding: .7rem 1rem; }
+      #mother-lines .graph-family-equation { font-size: 17pt; }
+      #mother-lines .mother-grid { margin-bottom: .7rem; }
+      #mother-lines .mother-graph { padding: .45rem; }
+      #mother-lines .mother-graph h3 { font-size: 18pt; }
+      #mother-lines .mother-graph p { margin-bottom: .15rem; font-size: 7pt; }
+      #mother-lines .mother-graph svg { height: 1.35in; }
+      #mother-lines .graph-lock { margin-bottom: .7rem; padding: .5rem; font-size: 10pt; }
+      #mother-lines .step-tape { margin-bottom: .7rem; }
+      #mother-lines .step { padding: .5rem; }
+      #mother-lines .step b { margin-bottom: .2rem; font-size: 6.5pt; }
+      #mother-lines .step .math { font-size: 13pt; }
+      #mother-lines .worked-example { padding: .7rem; }
+      #mother-lines .worked-example h3 { margin-bottom: .35rem; font-size: 15pt; }
+      #mother-lines .work-line { margin-bottom: .2rem; font-size: 10pt; }
       .not-yet { display: none; }
     }
   </style>
@@ -849,6 +932,7 @@
       <a href="#tangent" data-no="03">Tangent</a>
       <a href="#similar" data-no="04">Similar triangles</a>
       <a href="#square-solutions" data-no="05">Square solutions</a>
+      <a href="#mother-lines" data-no="06">Mother graphs</a>
     </nav>
 
     <main id="main">
@@ -892,7 +976,7 @@
       </section>
 
       <div class="fact-strip" aria-label="學習狀態">
-        <div class="fact"><strong>05</strong><span>已鎖定方法</span></div>
+        <div class="fact"><strong>06</strong><span>已鎖定方法</span></div>
         <div class="fact"><strong>108</strong><span>聽日題目</span></div>
         <div class="fact"><strong>02</strong><span>聽日試卷</span></div>
         <div class="fact"><strong>Circle</strong><span>未學完 · 唔亂加</span></div>
@@ -1204,6 +1288,97 @@ Disp "VY=",Y</pre>
             <p class="bracket-warning"><strong>正負兩種係「括號入面」</strong>，唔係話兩個 x 必定一正一負。</p>
           </div>
         </div>
+      </section>
+
+      <section class="lesson" id="mother-lines" aria-labelledby="motherLinesTitle">
+        <header class="lesson-head">
+          <div class="lesson-number">06</div>
+          <div>
+            <p class="section-kicker"><span class="status">Mother graph</span></p>
+            <h2 id="motherLinesTitle">直線：升、反轉、搬高</h2>
+          </div>
+          <p class="lesson-subtitle">目的：唔再逐條估個樣。先認得 y = x，再睇負號令佢反轉，最後睇 +N 將成條下降線搬高。</p>
+        </header>
+
+        <div class="formula-stage">
+          <span class="formula-label">同一個直線家族</span>
+          <div class="equation small graph-family-equation">
+            <span><i>y</i> = <i>x</i></span><span class="join">→</span>
+            <span><i>y</i> = −<i>x</i></span><span class="join">→</span>
+            <span><i>y</i> = −<i>x</i> + <i>N</i></span><span class="join">⇔</span>
+            <span><i>x</i> + <i>y</i> = <i>N</i></span>
+          </div>
+        </div>
+
+        <div class="mother-grid" aria-label="三幅直線 mother graph">
+          <figure class="mother-graph">
+            <h3><i>y</i> = <i>x</i></h3>
+            <p>x 大，y 一齊大：向右升</p>
+            <svg viewBox="0 0 270 250" role="img" aria-label="y 等於 x，由左下升向右上">
+              <path d="M18 125H252M135 234V16" fill="none" stroke="#18243b" stroke-width="3"/>
+              <path d="M246 119l12 6-12 6zM129 22l6-12 6 12z" fill="#18243b"/>
+              <path d="M38 222L232 28" fill="none" stroke="#1d55be" stroke-width="9" stroke-linecap="round"/>
+              <circle cx="135" cy="125" r="7" fill="#d94427" stroke="#18243b" stroke-width="2"/>
+              <text x="217" y="113" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">x</text>
+              <text x="146" y="29" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">y</text>
+              <text x="145" y="150" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="800" fill="#d94427">(0, 0)</text>
+            </svg>
+          </figure>
+
+          <figure class="mother-graph">
+            <h3><i>y</i> = −<i>x</i></h3>
+            <p>x 大，y 反而細：向右落</p>
+            <svg viewBox="0 0 270 250" role="img" aria-label="y 等於負 x，由左上降向右下">
+              <path d="M18 125H252M135 234V16" fill="none" stroke="#18243b" stroke-width="3"/>
+              <path d="M246 119l12 6-12 6zM129 22l6-12 6 12z" fill="#18243b"/>
+              <path d="M38 28L232 222" fill="none" stroke="#d94427" stroke-width="9" stroke-linecap="round"/>
+              <circle cx="135" cy="125" r="7" fill="#1d55be" stroke="#18243b" stroke-width="2"/>
+              <text x="217" y="113" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">x</text>
+              <text x="146" y="29" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">y</text>
+              <text x="145" y="150" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="800" fill="#1d55be">(0, 0)</text>
+            </svg>
+          </figure>
+
+          <figure class="mother-graph">
+            <h3><i>x</i> + <i>y</i> = <i>N</i></h3>
+            <p>同一條下降線，成條向上搬 N</p>
+            <svg viewBox="0 0 270 250" role="img" aria-label="x 加 y 等於 N，連接 y 軸的 N 和 x 軸的 N">
+              <path d="M35 215H252M35 232V16" fill="none" stroke="#18243b" stroke-width="3"/>
+              <path d="M246 209l12 6-12 6zM29 22l6-12 6 12z" fill="#18243b"/>
+              <path d="M35 42L218 215" fill="none" stroke="#1d55be" stroke-width="9" stroke-linecap="round"/>
+              <circle cx="35" cy="42" r="8" fill="#d94427" stroke="#18243b" stroke-width="2"/>
+              <circle cx="218" cy="215" r="8" fill="#d94427" stroke="#18243b" stroke-width="2"/>
+              <text x="48" y="35" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="800" fill="#d94427">(0, N)</text>
+              <text x="176" y="244" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="800" fill="#d94427">(N, 0)</text>
+              <text x="231" y="202" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">x</text>
+              <text x="46" y="25" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">y</text>
+            </svg>
+          </figure>
+        </div>
+
+        <p class="graph-lock"><strong>母圖鎖定：</strong><i>x</i> + <i>y</i> = <i>N</i> 永遠由 (0, <i>N</i>) 連去 (<i>N</i>, 0)，所以由左上向右下。</p>
+
+        <div class="step-tape explanation" aria-label="用 intercept 畫直線三步">
+          <div class="step">
+            <b>Step 01 · 搵 y-axis</b>
+            <span class="math"><i>x</i> = 0</span>
+          </div>
+          <div class="step">
+            <b>Step 02 · 搵 x-axis</b>
+            <span class="math"><i>y</i> = 0</span>
+          </div>
+          <div class="step">
+            <b>Step 03 · 畫線</b>
+            <span class="math">兩點連埋</span>
+          </div>
+        </div>
+
+        <article class="worked-example explanation">
+          <h3>第 18 題：唔使計交點</h3>
+          <p class="work-line"><i>x</i> + <i>y</i> = 53 → (0, 53) 同 (53, 0)</p>
+          <p class="work-line">11<i>x</i> + 18<i>y</i> = 730 → 約 (0, 41) 同 (66, 0)</p>
+          <p class="work-line answer">兩條都由左上落去右下 → B</p>
+        </article>
       </section>
 
       <aside class="not-yet">
