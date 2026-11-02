@@ -926,6 +926,22 @@
       #mother-lines .work-line { margin-bottom: .2rem; font-size: 10pt; }
       .not-yet { display: none; }
     }
+    /* topic-site */
+
+    .topic { padding: clamp(2rem, 5vw, 3.5rem) 0; border-top: 3px solid var(--ink); scroll-margin-top: 4.5rem; }
+    .topic h2 { margin: 0 0 1rem; font-size: clamp(1.8rem, 5vw, 2.6rem); }
+    .topic h2 span { color: var(--blue, #1d55be); margin-right: .5rem; }
+    .topic .sheet { display: block; width: 100%; height: auto; border: 2px solid var(--ink); background: #fff; }
+    .topic details { margin-top: 1rem; border: 2px dashed var(--muted, #888); padding: .6rem .9rem; }
+    .topic summary { cursor: pointer; font-weight: 800; font-size: 1.05rem; }
+    .topic .examples { display: grid; gap: 1.2rem; margin-top: 1rem; }
+    @media (min-width: 64rem) { .topic .examples { grid-template-columns: 1fr 1fr; } }
+    .topic .examples figure { margin: 0; padding: .35rem; border: 1.5px solid var(--ink); background: #fff; }
+    .topic .examples img { width: 100%; height: auto; display: block; }
+    .topic .examples figcaption { font-size: .95rem; padding: .4rem .2rem 0; }
+    .page-head { padding: 1.5rem 0 1rem; }
+    .page-head h1 { margin: 0; font-size: clamp(1.6rem, 5vw, 2.4rem); }
+    .page-head p { margin: .4rem 0 0; }
   </style>
 </head>
 <body>
@@ -944,837 +960,275 @@
 
   <div class="layout">
     <nav class="rail" aria-label="公式索引">
-      <a href="#vertex" data-no="01">Vertex form</a>
-      <a href="#convert" data-no="02">Standard → Vertex</a>
-      <a href="#tangent" data-no="03">Tangent</a>
-      <a href="#similar" data-no="04">Similar triangles</a>
-      <a href="#square-solutions" data-no="05">Square solutions</a>
-      <a href="#quadratic-roots" data-no="06">Quadratic roots</a>
-      <a href="#mother-lines" data-no="07">Mother graphs</a>
-      <a href="#tan-angles" data-no="08">Tan 大角 / π</a>
-      <!-- BEGIN NAV-GALLERY -->
-      <a href="#trig-signs" data-no="09">三角比：正負同細角</a>
-      <a href="#special-triangles" data-no="10">特別三角形</a>
-      <a href="#exponential" data-no="11">指數圖</a>
-      <a href="#lines" data-no="12">直線</a>
-      <a href="#quadratics" data-no="13">二次方程</a>
-      <a href="#misc" data-no="14">百分比、代數字、情境、幾何</a>
-      <!-- END NAV-GALLERY -->
+      <a href="#lines" data-no="01">直線</a>
+      <a href="#quadratics" data-no="02">二次方程</a>
+      <a href="#trig" data-no="03">三角</a>
+      <a href="#exponential" data-no="04">指數</a>
+      <a href="#geometry" data-no="05">幾何</a>
+      <a href="#moves" data-no="06">固定動作</a>
     </nav>
 
     <main id="main">
-      <section class="hero" aria-labelledby="pageTitle">
-        <div>
-          <p class="eyebrow"><span>Locked</span> 最快版本 · 2026-10-18</p>
-          <h1 id="pageTitle">少啲腦內轉換。快啲落筆。</h1>
-          <p class="hero-lead">做題時擺喺側邊。先睇圖認題型，再照機械步驟做；理解過嘅嘢，唔需要每次重新發明。</p>
-          <div class="hero-formula" aria-label="y equals a times open bracket x minus vertex x close bracket squared plus vertex y">
-            <i>y</i> = <i>a</i>[<i>x</i> − (<span class="vx-mark"><i>V</i><sub>x</sub></span>)]² + <span class="vy-mark"><i>V</i><sub>y</sub></span>
-          </div>
-        </div>
+      <header class="page-head">
+        <h1 style="font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.2; max-width: none;">SAT Math 一題型一頁</h1>
+        <p>每頁一張圖講晒要背嘅嘢；例題圖收埋喺下面，撳開先見。計數機只用 Casio fx-991ES Plus C。</p>
+      </header>
 
-        <figure class="hero-visual" aria-labelledby="heroGraphCaption">
-          <svg viewBox="0 0 520 470" role="img" aria-labelledby="heroGraphTitle heroGraphDesc">
-            <title id="heroGraphTitle">Vertex form 拋物線示意圖</title>
-            <desc id="heroGraphDesc">藍色拋物線最低點位於 Vx, Vy。虛線由最低點連接 x 軸的 Vx 和 y 軸的 Vy。</desc>
-            <defs>
-              <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
-                <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#1d55be" stroke-opacity=".16" stroke-width="1"/>
-              </pattern>
-              <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L7,3 z" fill="#1d55be"/>
-              </marker>
-            </defs>
-            <rect x="28" y="22" width="464" height="414" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
-            <rect x="28" y="22" width="464" height="414" fill="url(#grid)"/>
-            <path d="M66 330H470M130 408V52" stroke="#18243b" stroke-width="3"/>
-            <path d="M130 52l-7 13h14zM470 330l-13-7v14z" fill="#18243b"/>
-            <path d="M145 88 C196 332 246 382 302 258 C340 173 373 93 444 66" fill="none" stroke="#1d55be" stroke-width="9" stroke-linecap="round"/>
-            <path d="M272 307V330M130 307H272" fill="none" stroke="#d94427" stroke-width="3" stroke-dasharray="8 7"/>
-            <circle cx="272" cy="307" r="10" fill="#d94427" stroke="#18243b" stroke-width="3"/>
-            <text x="285" y="295" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="21" fill="#18243b">vertex (Vx, Vy)</text>
-            <text x="254" y="359" font-family="STIX Two Text, serif" font-style="italic" font-weight="650" font-size="29" fill="#1d55be">Vx</text>
-            <text x="84" y="315" font-family="STIX Two Text, serif" font-style="italic" font-weight="650" font-size="29" fill="#d94427">Vy</text>
-            <path d="M388 391C348 374 318 354 285 320" fill="none" stroke="#1d55be" stroke-width="3" marker-end="url(#arrowBlue)"/>
-            <text x="309" y="420" font-family="Bricolage Grotesque, sans-serif" font-weight="750" font-size="17" fill="#1d55be">括號 = 0 嗰刻</text>
-          </svg>
-          <figcaption id="heroGraphCaption" class="annotation">Vx 決定左右<br>Vy 決定上下</figcaption>
-        </figure>
-      </section>
-
-      <div class="fact-strip" aria-label="學習狀態">
-        <div class="fact"><strong>07</strong><span>已鎖定方法</span></div>
-        <div class="fact"><strong>108</strong><span>聽日題目</span></div>
-        <div class="fact"><strong>02</strong><span>聽日試卷</span></div>
-        <div class="fact"><strong>Circle</strong><span>未學完 · 唔亂加</span></div>
-      </div>
-
-      <section class="lesson" id="vertex" aria-labelledby="vertexTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">01</div>
-          <div>
-            <p class="section-kicker"><span class="status">Locked</span></p>
-            <h2 id="vertexTitle">Vertex form</h2>
-          </div>
-          <p class="lesson-subtitle">目的：一眼由方程式讀出轉折點，或者由 vertex 寫返條式。核心係原封不動代入，唔喺腦入面玩正負號。</p>
-        </header>
-
-        <div class="formula-stage">
-          <span class="formula-label">唯一預設寫法</span>
-          <div class="equation"><i>y</i> = <i>a</i>[<i>x</i> − (<span class="vx-mark"><i>V</i><sub>x</sub></span>)]² + <span class="vy-mark"><i>V</i><sub>y</sub></span></div>
-          <div class="equation small">vertex = (<span class="vx-mark"><i>V</i><sub>x</sub></span>, <span class="vy-mark"><i>V</i><sub>y</sub></span>)</div>
-        </div>
-
-        <figure class="diagram-panel intuition-panel" aria-labelledby="shiftTitle shiftDesc">
-          <svg viewBox="0 0 720 330" role="img" aria-labelledby="shiftTitle shiftDesc">
-            <title id="shiftTitle">y 等於 x 平方向左平移十五</title>
-            <desc id="shiftDesc">灰色的 y 等於 x 平方最低點在零零。藍色的 y 等於 x 加十五全平方，整幅圖向左移十五，最低點在負十五零。</desc>
-            <defs>
-              <marker id="shiftArrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
-                <path d="M0,0 L0,8 L9,4 z" fill="#d94427"/>
-              </marker>
-              <marker id="axisArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L7,3 z" fill="#18243b"/>
-              </marker>
-            </defs>
-            <path d="M42 236H682" fill="none" stroke="#18243b" stroke-width="3" marker-end="url(#axisArrow)"/>
-            <path d="M500 286V30" fill="none" stroke="#18243b" stroke-width="3" marker-end="url(#axisArrow)"/>
-
-            <path d="M390 62Q500 236 610 62" fill="none" stroke="#18243b" stroke-opacity=".36" stroke-width="8" stroke-dasharray="10 8" stroke-linecap="round"/>
-            <circle cx="500" cy="236" r="8" fill="#18243b" opacity=".5"/>
-            <text x="518" y="273" font-family="STIX Two Text, serif" font-size="25" font-style="italic" font-weight="650" fill="#18243b">(0, 0)</text>
-            <text x="520" y="50" font-family="STIX Two Text, serif" font-size="27" font-style="italic" font-weight="650" fill="#18243b">y = x²</text>
-
-            <path d="M90 62Q200 236 310 62" fill="none" stroke="#1d55be" stroke-width="10" stroke-linecap="round"/>
-            <circle cx="200" cy="236" r="9" fill="#d94427" stroke="#18243b" stroke-width="3"/>
-            <text x="150" y="273" font-family="STIX Two Text, serif" font-size="25" font-style="italic" font-weight="650" fill="#d94427">(−15, 0)</text>
-            <text x="76" y="50" font-family="STIX Two Text, serif" font-size="27" font-style="italic" font-weight="650" fill="#1d55be">y = (x + 15)²</text>
-
-            <path d="M462 304H238" fill="none" stroke="#d94427" stroke-width="4" marker-end="url(#shiftArrow)"/>
-            <text x="300" y="296" font-family="Bricolage Grotesque, sans-serif" font-size="20" font-weight="800" fill="#d94427">成幅向左搬 15</text>
-          </svg>
-          <figcaption class="diagram-caption">直覺：由 <i>y</i> = <i>x</i>² 嘅 (0, 0) 出發，括號入面變成 <i>x</i> + 15，成幅 U 形向左搬 15，vertex 就去到 (−15, 0)。</figcaption>
-          <p class="intuition-rule"><strong>防錯法：</strong>唔使死背「內加向左」。直接令括號 = 0：<i>x</i> + 15 = 0，所以 <i>V</i><sub>x</sub> = −15；括號外冇數，所以 <i>V</i><sub>y</sub> = 0。</p>
-        </figure>
-
-        <div class="vertex-grid">
-          <div class="explanation">
-            <ol class="mechanical">
-              <li>將 <strong>Vx 連符號</strong>原封不動放入 <strong>x − (Vx)</strong>。</li>
-              <li>將 <strong>Vy 連符號</strong>原封不動放喺括號外。</li>
-              <li>寫完先處理雙負號；唔好提前心算。</li>
-            </ol>
-            <div class="ink-note">試題寫 h, k，就翻譯成 Vx, Vy。Vertex = (−4, 2) → 先寫 x − (−4)，最後先變 x + 4。</div>
-
-            <div class="sign-lane" aria-label="Vertex 符號例子">
-              <div class="sign-row"><strong>(3, −5)</strong><span>a[x − (3)]² − 5</span></div>
-              <div class="sign-row"><strong>(−4, 2)</strong><span>a[x − (−4)]² + 2</span></div>
-              <div class="sign-row"><strong>(0, 7)</strong><span>a[x − (0)]² + 7</span></div>
-            </div>
-          </div>
-
-          <figure class="diagram-panel">
-            <svg viewBox="0 0 540 450" role="img" aria-labelledby="signTitle signDesc">
-              <title id="signTitle">將負四原封不動代入 x 減 Vx</title>
-              <desc id="signDesc">Vertex 負四、二先寫成 x 減負四，然後雙負號變成 x 加四。</desc>
-              <rect x="24" y="28" width="492" height="92" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
-              <text x="50" y="67" font-family="Bricolage Grotesque, sans-serif" font-size="18" font-weight="800" fill="#18243b">VERTEX</text>
-              <text x="50" y="101" font-family="STIX Two Text, serif" font-size="35" font-weight="650" fill="#18243b">(−4, 2)</text>
-              <path d="M135 141V183" stroke="#1d55be" stroke-width="4"/>
-              <path d="M126 174l9 14 9-14" fill="none" stroke="#1d55be" stroke-width="4"/>
-              <rect x="24" y="198" width="492" height="92" fill="#d9e6ff" stroke="#18243b" stroke-width="3"/>
-              <text x="48" y="254" font-family="STIX Two Text, serif" font-size="39" font-weight="650" fill="#18243b">y = a[x − (−4)]² + 2</text>
-              <path d="M270 308V345" stroke="#d94427" stroke-width="4"/>
-              <path d="M261 336l9 14 9-14" fill="none" stroke="#d94427" stroke-width="4"/>
-              <rect x="24" y="361" width="492" height="68" fill="#f1d554" stroke="#18243b" stroke-width="3"/>
-              <text x="58" y="407" font-family="STIX Two Text, serif" font-size="38" font-weight="650" fill="#18243b">y = a(x + 4)² + 2</text>
-            </svg>
-            <figcaption class="diagram-caption">先抄，後化簡。呢個次序就係防止正負號出錯。</figcaption>
-          </figure>
-        </div>
-
-        <div class="formula-stage" style="margin-top:clamp(2rem,5vw,4rem)">
-          <span class="formula-label">已知 vertex 同另一點，求 a</span>
-          <div class="equation small">
-            <i>a</i> =
-            <span class="frac"><span><i>y</i>₁ − <i>V</i><sub>y</sub></span><span>(<i>x</i>₁ − <i>V</i><sub>x</sub>)²</span></span>
-          </div>
-        </div>
-      </section>
-
-      <section class="lesson" id="convert" aria-labelledby="convertTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">02</div>
-          <div>
-            <p class="section-kicker"><span class="status">Default route</span></p>
-            <h2 id="convertTitle">Standard → Vertex</h2>
-          </div>
-          <p class="lesson-subtitle">目的：由 ax² + bx + c 直接變成 vertex form。完整配方法只留作理解；平時計數用固定三步。</p>
-        </header>
-
-        <div class="formula-stage">
-          <span class="formula-label">輸入</span>
-          <div class="equation small"><i>f</i>(<i>x</i>) = <i>a x</i>² + <i>b x</i> + <i>c</i></div>
-        </div>
-
-        <div class="step-tape" aria-label="Standard form 轉 Vertex form 三步">
-          <div class="step">
-            <b>Step 01 · 左右</b>
-            <span class="math"><i>V</i><sub>x</sub> = −<span class="frac"><span><i>b</i></span><span>2<i>a</i></span></span></span>
-          </div>
-          <div class="step">
-            <b>Step 02 · 上下</b>
-            <span class="math"><i>V</i><sub>y</sub> = <i>f</i>(<i>V</i><sub>x</sub>)</span>
-          </div>
-          <div class="step">
-            <b>Step 03 · 寫答案</b>
-            <span class="math"><i>f</i>(<i>x</i>) = <i>a</i>(<i>x</i> − <i>V</i><sub>x</sub>)² + <i>V</i><sub>y</sub></span>
-          </div>
-        </div>
-
-        <div class="method-grid">
-          <article class="worked-example explanation">
-            <h3>熟口熟面嗰條</h3>
-            <p class="work-line"><i>f</i>(<i>x</i>) = −3<i>x</i>² − 12<i>x</i> + 5</p>
-            <p class="work-line"><i>V</i><sub>x</sub> = −(−12) ÷ [2(−3)] = −2</p>
-            <p class="work-line"><i>V</i><sub>y</sub> = <i>f</i>(−2) = −3(4) + 24 + 5 = 17</p>
-            <p class="work-line answer"><i>f</i>(<i>x</i>) = −3(<i>x</i> + 2)² + 17</p>
-          </article>
-
-          <aside class="calculator explanation" aria-label="TI-84 VERTEX 程式">
-            <h3>TI-84 / VERTEX</h3>
-            <pre>Prompt A,B,C
-−B/(2A)→X
-A×X²+B×X+C→Y
-Disp "VX=",X
-Disp "VY=",Y</pre>
-            <div class="warning">負數用最下面嗰粒 (−)；減法先用普通 −。</div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="lesson" id="tangent" aria-labelledby="tangentTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">03</div>
-          <div>
-            <p class="section-kicker"><span class="status">Locked</span></p>
-            <h2 id="tangentTitle">Tangent</h2>
-          </div>
-          <p class="lesson-subtitle">目的：指定一隻角之後，準確搵出 opposite 同 adjacent。唔背長邊短邊，因為長短會變。</p>
-        </header>
-
-        <div class="formula-stage">
-          <span class="formula-label">唯一比例</span>
-          <div class="equation">
-            tan <i>θ</i> =
-            <span class="frac"><span>opposite</span><span>adjacent</span></span>
-          </div>
-        </div>
-
-        <div class="triangle-grid">
-          <figure class="diagram-panel">
-            <svg viewBox="0 0 560 440" role="img" aria-labelledby="tanTitle tanDesc">
-              <title id="tanTitle">直角三角形 tangent 三條邊</title>
-              <desc id="tanDesc">角 theta 左邊，紅色直邊是 opposite，藍色底邊是 adjacent，綠色斜邊是 hypotenuse。</desc>
-              <path d="M86 354H470L86 74Z" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
-              <path d="M86 354H470" stroke="#1d55be" stroke-width="12" stroke-linecap="round"/>
-              <path d="M470 354L86 74" stroke="#23855f" stroke-width="12" stroke-linecap="round"/>
-              <path d="M86 74V354" stroke="#d94427" stroke-width="12" stroke-linecap="round"/>
-              <path d="M86 326H114V354" fill="none" stroke="#18243b" stroke-width="4"/>
-              <path d="M421 354A49 49 0 0 0 430 326" fill="none" stroke="#18243b" stroke-width="4"/>
-              <text x="399" y="340" font-family="STIX Two Text, serif" font-size="34" font-style="italic" font-weight="650" fill="#18243b">θ</text>
-              <text x="20" y="225" transform="rotate(-90 20 225)" font-family="Bricolage Grotesque, sans-serif" font-size="20" font-weight="800" fill="#d94427">OPPOSITE</text>
-              <text x="213" y="401" font-family="Bricolage Grotesque, sans-serif" font-size="20" font-weight="800" fill="#1d55be">ADJACENT</text>
-              <text x="280" y="165" transform="rotate(36 280 165)" font-family="Bricolage Grotesque, sans-serif" font-size="19" font-weight="800" fill="#23855f">HYPOTENUSE</text>
-              <text x="52" y="390" font-family="Bricolage Grotesque, sans-serif" font-size="17" font-weight="800" fill="#18243b">90°</text>
-            </svg>
-            <div class="triangle-key" aria-hidden="true">
-              <span><i class="dot red"></i>對面</span>
-              <span><i class="dot blue"></i>隔籬</span>
-              <span><i class="dot green"></i>刪走</span>
-            </div>
-            <figcaption class="diagram-caption">企喺 θ 望：紅色正對面，藍色掂住你，綠色對住 90°。</figcaption>
-          </figure>
-
-          <div class="explanation">
-            <ol class="mechanical">
-              <li>先搵 <strong>90°</strong>。</li>
-              <li>90° 正對面係 <strong>hypotenuse</strong>；先刪走，tan 唔用佢。</li>
-              <li>剩低兩條：指定角正對面係 <strong>opposite</strong>，放上面。</li>
-              <li>掂住指定角嗰條係 <strong>adjacent</strong>，放下面。</li>
-            </ol>
-            <div class="ink-note">最緊要：Adjacent 唔等於「短嗰條」。只睇位置，唔睇長短。</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="lesson" id="similar" aria-labelledby="similarTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">04</div>
-          <div>
-            <p class="section-kicker"><span class="status">Locked</span></p>
-            <h2 id="similarTitle">Similar triangles</h2>
-          </div>
-          <p class="lesson-subtitle">意思：形狀相同，只係整個三角形等比例放大或縮小。重點唔係背圖，而係保持配對同方向。</p>
-        </header>
-
-        <div class="triangle-grid">
-          <figure class="diagram-panel">
-            <svg viewBox="0 0 620 410" role="img" aria-labelledby="simTitle simDesc">
-              <title id="simTitle">兩個相似直角三角形</title>
-              <desc id="simDesc">左邊小三角形與右邊大三角形形狀相同。紅、藍、綠三組邊分別互相對應。</desc>
-              <path d="M54 327H250L54 160Z" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
-              <path d="M54 327H250" stroke="#1d55be" stroke-width="9"/>
-              <path d="M54 160V327" stroke="#d94427" stroke-width="9"/>
-              <path d="M250 327L54 160" stroke="#23855f" stroke-width="9"/>
-              <path d="M54 305H76V327" fill="none" stroke="#18243b" stroke-width="3"/>
-              <path d="M334 327H576L334 98Z" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
-              <path d="M334 327H576" stroke="#1d55be" stroke-width="9"/>
-              <path d="M334 98V327" stroke="#d94427" stroke-width="9"/>
-              <path d="M576 327L334 98" stroke="#23855f" stroke-width="9"/>
-              <path d="M334 305H356V327" fill="none" stroke="#18243b" stroke-width="3"/>
-              <text x="118" y="370" font-family="Bricolage Grotesque, sans-serif" font-size="19" font-weight="800" fill="#1d55be">small</text>
-              <text x="423" y="370" font-family="Bricolage Grotesque, sans-serif" font-size="19" font-weight="800" fill="#1d55be">same × scale</text>
-              <path d="M258 212H321" stroke="#18243b" stroke-width="3"/>
-              <path d="M309 201l14 11-14 11" fill="none" stroke="#18243b" stroke-width="3"/>
-              <text x="272" y="194" font-family="STIX Two Text, serif" font-size="25" font-weight="650" fill="#18243b">×k</text>
-            </svg>
-            <figcaption class="diagram-caption">同色邊互相對應；三條邊全部乘同一個 scale factor。</figcaption>
-          </figure>
-
-          <div class="explanation">
-            <ol class="mechanical">
-              <li>用相同角先搵 <strong>對應邊</strong>。</li>
-              <li>每個分數保持同方向：全程小/大，或者全程 A/B。</li>
-              <li>放入未知數，最後 <strong>cross multiply</strong>。</li>
-            </ol>
-            <div class="ink-note">唔需要兩個三角形一樣大；只需要角度相同、邊按同一比例變。</div>
-          </div>
-        </div>
-
-        <div class="ratio-board">
-          <span class="formula-label">固定比例 · 全程同方向</span>
-          <div class="equation">
-            <span class="frac"><span>小邊₁</span><span>對應大邊₁</span></span>
-            =
-            <span class="frac"><span>小邊₂</span><span>對應大邊₂</span></span>
-          </div>
-        </div>
-      </section>
-
-      <section class="lesson" id="square-solutions" aria-labelledby="squareSolutionsTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">05</div>
-          <div>
-            <p class="section-kicker"><span class="status">Locked</span></p>
-            <h2 id="squareSolutionsTitle">平方之後，有幾多個解？</h2>
-          </div>
-          <p class="lesson-subtitle">目的：見到「一嚿嘢平方 = n」，唔使解晒條式，望右邊個 n 就知道有 0、1 定 2 個 distinct real solutions。</p>
-        </header>
-
-        <div class="formula-stage">
-          <span class="formula-label">先望右邊</span>
-          <div class="equation">(括號入面)² = <i>n</i></div>
-        </div>
-
-        <p class="solution-plain explanation">平方後一定大過或等於零。所以右邊係負數，根本冇可能；係零，括號只能係零；係正數，括號可以一正一負。</p>
-
-        <div class="solution-board" aria-label="n 的正負決定 real solution 數量">
-          <div class="solution-case zero">
-            <span class="condition"><i>n</i> &lt; 0</span>
-            <span class="reason explanation">平方冇可能變負數</span>
-            <span class="count">0 個解</span>
-          </div>
-          <div class="solution-case one">
-            <span class="condition"><i>n</i> = 0</span>
-            <span class="reason explanation">只有 0² = 0</span>
-            <span class="count">1 個解</span>
-          </div>
-          <div class="solution-case two">
-            <span class="condition"><i>n</i> &gt; 0</span>
-            <span class="reason explanation">+√n 同 −√n 都得</span>
-            <span class="count">2 個解</span>
-          </div>
-        </div>
-
-        <div class="method-grid">
-          <article class="worked-example explanation">
-            <h3>第 16 題個原理</h3>
-            <p class="work-line">(<i>x</i> + 15)² = 0</p>
-            <p class="work-line">括號入面只能 = 0</p>
-            <p class="work-line"><i>x</i> = −15</p>
-            <p class="work-line answer">1 distinct real solution</p>
-          </article>
-
-          <div class="explanation">
-            <ol class="mechanical">
-              <li>唔使理括號入面幾複雜，<strong>先望右邊個 n</strong>。</li>
-              <li>負數 → 0 個；零 → 1 個；正數 → 2 個。</li>
-              <li>題目只問數量，就到此停手，唔使真的解 x。</li>
-            </ol>
-            <p class="bracket-warning"><strong>正負兩種係「括號入面」</strong>，唔係話兩個 x 必定一正一負。</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="lesson" id="quadratic-roots" aria-labelledby="quadraticRootsTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">06</div>
-          <div>
-            <p class="section-kicker"><span class="status">Calculator first</span></p>
-            <h2 id="quadraticRootsTitle">Quadratic roots：唔手計</h2>
-          </div>
-          <p class="lesson-subtitle">只要題目係問 solutions、roots 或 x-intercepts，就用 Bluebook 內置 Desmos。SAT 唔要求寫步驟，冇必要每次手抄 quadratic formula。</p>
-        </header>
-
-        <div class="formula-stage">
-          <span class="formula-label">唯一預設路線</span>
-          <div class="equation small root-route">
-            <span><i>ax</i>² + <i>bx</i> + <i>c</i> = 0</span>
-            <span class="route-arrow" aria-hidden="true">→</span>
-            <span>Desmos：<i>y</i> = <i>ax</i>² + <i>bx</i> + <i>c</i></span>
-          </div>
-          <div class="equation small root-route">
-            <span>撳兩個 x-intercepts</span>
-            <span class="route-arrow" aria-hidden="true">→</span>
-            <span><i>x</i> = roots</span>
-          </div>
-        </div>
-
-        <div class="step-tape" aria-label="Desmos 解 quadratic equation 三步">
-          <div class="step">
-            <b>Step 01 · 歸零</b>
-            <span class="math">全部搬去一邊 = 0</span>
-          </div>
-          <div class="step">
-            <b>Step 02 · 輸入</b>
-            <span class="math"><i>y</i> = 左邊成條式</span>
-          </div>
-          <div class="step">
-            <b>Step 03 · 撳點</b>
-            <span class="math">(root, 0)</span>
-          </div>
-        </div>
-
-        <div class="method-grid">
-          <figure class="diagram-panel" aria-labelledby="rootGraphTitle rootGraphDesc">
-            <svg viewBox="0 0 620 400" role="img" aria-labelledby="rootGraphTitle rootGraphDesc">
-              <title id="rootGraphTitle">Quadratic graph 的兩個 x-intercepts</title>
-              <desc id="rootGraphDesc">藍色拋物線穿過 x 軸兩次，紅色標示兩個交點 x 等於負二和負一點五，亦即方程式的兩個解。</desc>
-              <defs>
-                <pattern id="rootGrid" width="48" height="48" patternUnits="userSpaceOnUse">
-                  <path d="M48 0H0V48" fill="none" stroke="#1d55be" stroke-opacity=".14" stroke-width="1"/>
-                </pattern>
-                <marker id="rootAxisArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                  <path d="M0,0 L0,6 L7,3 z" fill="#18243b"/>
-                </marker>
-              </defs>
-              <rect x="26" y="22" width="568" height="340" fill="#f4eedf" stroke="#18243b" stroke-width="3"/>
-              <rect x="26" y="22" width="568" height="340" fill="url(#rootGrid)"/>
-              <path d="M52 250H570M430 342V46" fill="none" stroke="#18243b" stroke-width="3" marker-end="url(#rootAxisArrow)"/>
-              <path d="M112 60Q238 406 366 60" fill="none" stroke="#1d55be" stroke-width="10" stroke-linecap="round"/>
-              <circle cx="184" cy="250" r="10" fill="#d94427" stroke="#18243b" stroke-width="3"/>
-              <circle cx="294" cy="250" r="10" fill="#d94427" stroke="#18243b" stroke-width="3"/>
-              <path d="M184 250V310M294 250V310" stroke="#d94427" stroke-width="3" stroke-dasharray="7 6"/>
-              <text x="127" y="337" font-family="STIX Two Text, serif" font-size="27" font-weight="650" fill="#d94427">(−2, 0)</text>
-              <text x="258" y="337" font-family="STIX Two Text, serif" font-size="27" font-weight="650" fill="#d94427">(−1.5, 0)</text>
-              <text x="371" y="90" font-family="STIX Two Text, serif" font-size="25" font-style="italic" font-weight="650" fill="#1d55be">y = 2x² + 7x + 6</text>
-            </svg>
-            <figcaption class="diagram-caption">條線同 x-axis 相交嗰兩點，就係 equation = 0 嗰兩個 x。</figcaption>
-          </figure>
-
-          <div class="explanation">
-            <article class="worked-example">
-              <h3>例：2x² + 7x + 6 = 0</h3>
-              <p class="work-line">Desmos：<i>y</i> = 2<i>x</i>² + 7<i>x</i> + 6</p>
-              <p class="work-line">撳到 (−2, 0) 同 (−1.5, 0)</p>
-              <p class="work-line answer"><i>x</i> = −2, −1.5</p>
-            </article>
-            <p class="bracket-warning" style="margin-top:1.25rem"><strong>唔好亂套：</strong>如果題目問 discriminant、公式入面個 k、未知 coefficient，或者要 exact symbolic form，佢考緊另一個 concept；唔係淨係問 roots。</p>
-            <p class="warning">SAT 允許 Bluebook 內置 Desmos；但最新規則要求移除有解 equations 功能嘅 handheld programs。考試預設用 Desmos，唔依賴 TI‑84 solver app。 <a href="https://satsuite.collegeboard.org/in-school-assessments/calculator-policy">College Board policy</a></p>
-          </div>
-        </div>
-      </section>
-
-      <section class="lesson" id="mother-lines" aria-labelledby="motherLinesTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">07</div>
-          <div>
-            <p class="section-kicker"><span class="status">Mother graph</span></p>
-            <h2 id="motherLinesTitle">直線：升、反轉、搬高</h2>
-          </div>
-          <p class="lesson-subtitle">目的：唔再逐條估個樣。先認得 y = x，再睇負號令佢反轉，最後睇 +N 將成條下降線搬高。</p>
-        </header>
-
-        <div class="formula-stage">
-          <span class="formula-label">同一個直線家族</span>
-          <div class="equation small graph-family-equation">
-            <span><i>y</i> = <i>x</i></span><span class="join">→</span>
-            <span><i>y</i> = −<i>x</i></span><span class="join">→</span>
-            <span><i>y</i> = −<i>x</i> + <i>N</i></span><span class="join">⇔</span>
-            <span><i>x</i> + <i>y</i> = <i>N</i></span>
-          </div>
-        </div>
-
-        <div class="mother-grid" aria-label="三幅直線 mother graph">
-          <figure class="mother-graph">
-            <h3><i>y</i> = <i>x</i></h3>
-            <p>x 大，y 一齊大：向右升</p>
-            <svg viewBox="0 0 270 250" role="img" aria-label="y 等於 x，由左下升向右上">
-              <path d="M18 125H252M135 234V16" fill="none" stroke="#18243b" stroke-width="3"/>
-              <path d="M246 119l12 6-12 6zM129 22l6-12 6 12z" fill="#18243b"/>
-              <path d="M38 222L232 28" fill="none" stroke="#1d55be" stroke-width="9" stroke-linecap="round"/>
-              <circle cx="135" cy="125" r="7" fill="#d94427" stroke="#18243b" stroke-width="2"/>
-              <text x="217" y="113" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">x</text>
-              <text x="146" y="29" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">y</text>
-              <text x="145" y="150" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="800" fill="#d94427">(0, 0)</text>
-            </svg>
-          </figure>
-
-          <figure class="mother-graph">
-            <h3><i>y</i> = −<i>x</i></h3>
-            <p>x 大，y 反而細：向右落</p>
-            <svg viewBox="0 0 270 250" role="img" aria-label="y 等於負 x，由左上降向右下">
-              <path d="M18 125H252M135 234V16" fill="none" stroke="#18243b" stroke-width="3"/>
-              <path d="M246 119l12 6-12 6zM129 22l6-12 6 12z" fill="#18243b"/>
-              <path d="M38 28L232 222" fill="none" stroke="#d94427" stroke-width="9" stroke-linecap="round"/>
-              <circle cx="135" cy="125" r="7" fill="#1d55be" stroke="#18243b" stroke-width="2"/>
-              <text x="217" y="113" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">x</text>
-              <text x="146" y="29" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">y</text>
-              <text x="145" y="150" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="800" fill="#1d55be">(0, 0)</text>
-            </svg>
-          </figure>
-
-          <figure class="mother-graph">
-            <h3><i>x</i> + <i>y</i> = <i>N</i></h3>
-            <p>同一條下降線，成條向上搬 N</p>
-            <svg viewBox="0 0 270 250" role="img" aria-label="x 加 y 等於 N，連接 y 軸的 N 和 x 軸的 N">
-              <path d="M35 215H252M35 232V16" fill="none" stroke="#18243b" stroke-width="3"/>
-              <path d="M246 209l12 6-12 6zM29 22l6-12 6 12z" fill="#18243b"/>
-              <path d="M35 42L218 215" fill="none" stroke="#1d55be" stroke-width="9" stroke-linecap="round"/>
-              <circle cx="35" cy="42" r="8" fill="#d94427" stroke="#18243b" stroke-width="2"/>
-              <circle cx="218" cy="215" r="8" fill="#d94427" stroke="#18243b" stroke-width="2"/>
-              <text x="48" y="35" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="800" fill="#d94427">(0, N)</text>
-              <text x="176" y="244" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="800" fill="#d94427">(N, 0)</text>
-              <text x="231" y="202" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">x</text>
-              <text x="46" y="25" font-family="STIX Two Text, serif" font-size="22" font-style="italic" fill="#18243b">y</text>
-            </svg>
-          </figure>
-        </div>
-
-        <p class="graph-lock"><strong>母圖鎖定：</strong><i>x</i> + <i>y</i> = <i>N</i> 永遠由 (0, <i>N</i>) 連去 (<i>N</i>, 0)，所以由左上向右下。</p>
-
-        <div class="step-tape explanation" aria-label="用 intercept 畫直線三步">
-          <div class="step">
-            <b>Step 01 · 搵 y-axis</b>
-            <span class="math"><i>x</i> = 0</span>
-          </div>
-          <div class="step">
-            <b>Step 02 · 搵 x-axis</b>
-            <span class="math"><i>y</i> = 0</span>
-          </div>
-          <div class="step">
-            <b>Step 03 · 畫線</b>
-            <span class="math">兩點連埋</span>
-          </div>
-        </div>
-
-        <article class="worked-example explanation">
-          <h3>第 18 題：唔使計交點</h3>
-          <p class="work-line"><i>x</i> + <i>y</i> = 53 → (0, 53) 同 (53, 0)</p>
-          <p class="work-line">11<i>x</i> + 18<i>y</i> = 730 → 約 (0, 41) 同 (66, 0)</p>
-          <p class="work-line answer">兩條都由左上落去右下 → B</p>
-        </article>
-      </section>
-
-      <section class="lesson" id="tan-angles" aria-labelledby="tanAnglesTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">08</div>
-          <div>
-            <p class="section-kicker"><span class="status">要背</span></p>
-            <h2 id="tanAnglesTitle">Tan 大角 / π</h2>
-          </div>
-          <p class="lesson-subtitle">目的：見到 tan(92π/3) 呢類大角唔驚。tan 即係斜度；π 換 180；轉成個圈等於冇轉。</p>
-        </header>
-
-        <div class="formula-stage">
-          <span class="formula-label">三步</span>
-          <div class="equation small graph-family-equation">
-            <span>π → 180°</span><span class="join">→</span>
-            <span>÷ 360 攞餘數</span><span class="join">→</span>
-            <span>睇方向定正負</span>
-          </div>
-        </div>
-
-        <figure class="diagram-panel">
-          <a href="assets/tan-cheatsheet-tall.png" aria-label="打開大圖">
+      <section class="topic" id="lines">
+        <h2><span>01</span>直線</h2>
+        <a href="assets/fig/sheet-lines-tall.png" aria-label="打開大圖">
           <picture>
-            <source media="(max-width: 42rem)" srcset="assets/tan-cheatsheet-tall.png">
-            <img src="assets/tan-cheatsheet.png" alt="tan 同 radian 要背嘅 6 樣：tan 等於斜度；π 等於 180 度；一個圈 360 度等於冇轉過；30-60-90 三角形 1 比 根號3 比 2；45-45-90 三角形 1 比 1 比 根號2；向右上正、向左上負。" loading="lazy">
+            <source media="(max-width: 48rem)" srcset="assets/fig/sheet-lines-tall.png">
+            <img class="sheet" src="assets/fig/sheet-lines.png" alt="直線：要背嘅嘢一頁睇晒" loading="lazy">
           </picture>
-          </a>
-          <figcaption class="diagram-caption">㩒張圖可以開大圖放大。PT5 M1 Q19：92π/3 = 5520° = 15 個圈 + 120° → tan 120° = −√3。</figcaption>
-        </figure>
-
-        <div class="explanation">
-          <ol class="mechanical">
-            <li><strong>tan = 對面 ÷ 隔籬 = 斜度</strong>（sin = 對面 ÷ 斜邊，cos = 隔籬 ÷ 斜邊）。</li>
-            <li><strong>π = 180°</strong>：π/6 = 30°，π/4 = 45°，π/3 = 60°。</li>
-            <li><strong>大角 ÷ 360 攞餘數</strong>：轉成個圈等於冇轉過。</li>
-            <li><strong>30-60-90 = 1 : √3 : 2</strong>：tan 30° = 1/√3 = √3/3 ≈ 0.577，tan 60° = √3 ≈ 1.732。</li>
-            <li><strong>45-45-90 = 1 : 1 : √2</strong>：tan 45° = 1。</li>
-            <li><strong>向右上 → 正，向左上 → 負</strong>；細角 = 180 − 角：tan 150° = −tan 30° = −√3/3。</li>
-          </ol>
-          <div class="ink-note">撳機：見到 π → SHIFT → MODE → 4（Rad）。計完轉返 Deg：SHIFT → MODE → 3。</div>
-        </div>
-      </section>
-
-      <!-- BEGIN GALLERY (tools/build_galleries.py) -->
-      <section class="lesson gallery" id="trig-signs" aria-labelledby="trig-signsTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">09</div>
-          <div>
-            <p class="section-kicker"><span class="status">圖庫</span></p>
-            <h2 id="trig-signsTitle">三角比：正負同細角</h2>
+        </a>
+        <details>
+          <summary>例題圖（7 張，撳開先睇）</summary>
+          <div class="examples">
+            <figure>
+              <a href="assets/fig/line-forms.png"><img src="assets/fig/line-forms.png" alt="直線 3 款寫法 + 特別直線" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q26</strong>：直線 3 款寫法 + 特別直線</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q26-tangent.png"><img src="assets/fig/m2q26-tangent.png" alt="切線 ⊥ 半徑：斜度反轉變號" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q26</strong>：切線 ⊥ 半徑：斜度反轉變號</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q26-check-options.png"><img src="assets/fig/m2q26-check-options.png" alt="寫條線，逐個選項代 x 對 y" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q26</strong>：寫條線，逐個選項代 x 對 y</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q13-no-solution.png"><img src="assets/fig/m2q13-no-solution.png" alt="冇解 = 平行；同一條線 = 無限多解" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q13</strong>：冇解 = 平行；同一條線 = 無限多解</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q20-system.png"><img src="assets/fig/m2q20-system.png" alt="兩條聯立：直接加；或者 Casio EQN" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q20</strong>：兩條聯立：直接加；或者 Casio EQN</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q12-boundary-points.png"><img src="assets/fig/m2q12-boundary-points.png" alt="陰影不等式：界線上兩點代入" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q12</strong>：陰影不等式：界線上兩點代入</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q19-risky-row.png"><img src="assets/fig/m2q19-risky-row.png" alt="邊個表啱：逐行代入，一見唔過關就刪" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q19</strong>：邊個表啱：逐行代入，一見唔過關就刪</figcaption>
+            </figure>
           </div>
-          <p class="lesson-subtitle">數值永遠用「條線同最近 x 軸」嘅細角；大角只係話你知方向（正定負）。sin 睇上下，cos 睇左右，tan 睇斜度。</p>
-        </header>
-        <div class="gallery-grid">
-          <figure class="diagram-panel">
-            <a href="assets/fig/sin-cos-sign.png" aria-label="打開大圖"><img src="assets/fig/sin-cos-sign.png" alt="sin = 上下、cos = 左右、tan = 斜度；135° 指左上 → sin 正" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M1 Q15</strong>：sin = 上下、cos = 左右、tan = 斜度；135° 指左上 → sin 正</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/sin-sign-why.png" aria-label="打開大圖"><img src="assets/fig/sin-sign-why.png" alt="三角形喺左上：直邊 +、橫邊 −、斜邊永遠 +" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M1 Q15</strong>：三角形喺左上：直邊 +、橫邊 −、斜邊永遠 +</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/135-split.png" aria-label="打開大圖"><img src="assets/fig/135-split.png" alt="x 軸係直線 180°：135° + 45°，三角形用剩低嗰份" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M1 Q15</strong>：x 軸係直線 180°：135° + 45°，三角形用剩低嗰份</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/sin45-sin135.png" aria-label="打開大圖"><img src="assets/fig/sin45-sin135.png" alt="sin 45° = sin 135°：照鏡，高度一樣" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M1 Q15</strong>：sin 45° = sin 135°：照鏡，高度一樣</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/four-45s.png" aria-label="打開大圖"><img src="assets/fig/four-45s.png" alt="四支針細角都係 45°，所以統一由右邊逆時針數" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M1 Q15</strong>：四支針細角都係 45°，所以統一由右邊逆時針數</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/sin-height.gif" aria-label="打開大圖"><img src="assets/fig/sin-height.gif" alt="動畫：sin = 針尖有幾高" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M1 Q15</strong>：動畫：sin = 針尖有幾高</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/tan-as-slope.png" aria-label="打開大圖"><img src="assets/fig/tan-as-slope.png" alt="tan = 斜度：60° 同 120°" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q19</strong>：tan = 斜度：60° 同 120°</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/full-turn.gif" aria-label="打開大圖"><img src="assets/fig/full-turn.gif" alt="動畫：轉成個圈等於冇轉" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q19</strong>：動畫：轉成個圈等於冇轉</figcaption>
-          </figure>
-        </div>
+        </details>
       </section>
 
-      <section class="lesson gallery" id="special-triangles" aria-labelledby="special-trianglesTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">10</div>
-          <div>
-            <p class="section-kicker"><span class="status">圖庫</span></p>
-            <h2 id="special-trianglesTitle">特別三角形</h2>
+      <section class="topic" id="quadratics">
+        <h2><span>02</span>二次方程</h2>
+        <a href="assets/fig/sheet-quadratics-tall.png" aria-label="打開大圖">
+          <picture>
+            <source media="(max-width: 48rem)" srcset="assets/fig/sheet-quadratics-tall.png">
+            <img class="sheet" src="assets/fig/sheet-quadratics.png" alt="二次方程：要背嘅嘢一頁睇晒" loading="lazy">
+          </picture>
+        </a>
+        <details>
+          <summary>例題圖（9 張，撳開先睇）</summary>
+          <div class="examples">
+            <figure>
+              <a href="assets/fig/quadratic-forms.png"><img src="assets/fig/quadratic-forms.png" alt="二次 3 款寫法" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q6</strong>：二次 3 款寫法</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/zeros-to-factors.png"><img src="assets/fig/zeros-to-factors.png" alt="掂 x 軸兩點 → a(x − r)(x − s)" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q26</strong>：掂 x 軸兩點 → a(x − r)(x − s)</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/q26-fast-methods.png"><img src="assets/fig/q26-fast-methods.png" alt="Vx = 兩個 zero 中間 = −b/(2a)" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q26</strong>：Vx = 兩個 zero 中間 = −b/(2a)</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q7-zero-product.png"><img src="assets/fig/m2q7-zero-product.png" alt="兩邊一樣嘅數消走 → 乘埋 = 0" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q7</strong>：兩邊一樣嘅數消走 → 乘埋 = 0</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/apacc-q19-move-to-zero.png"><img src="assets/fig/apacc-q19-move-to-zero.png" alt="右邊唔係 0 → 先全部搬去一邊" loading="lazy"></a>
+              <figcaption><strong>亞太C M1 Q19</strong>：右邊唔係 0 → 先全部搬去一邊</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/q27-methods.png"><img src="assets/fig/q27-methods.png" alt="g(7 − w) = 0 → 7 − w 係紅點" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q27</strong>：g(7 − w) = 0 → 7 − w 係紅點</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/q27-new-curve.png"><img src="assets/fig/q27-new-curve.png" alt="代入 = 第二條線；expand 唔會變線" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q27</strong>：代入 = 第二條線；expand 唔會變線</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q24-discriminant.png"><img src="assets/fig/m2q24-discriminant.png" alt="冇實數解：先刪 a、c 一正一負" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q24</strong>：冇實數解：先刪 a、c 一正一負</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q18-line-parabola.png"><img src="assets/fig/m2q18-line-parabola.png" alt="直線同拋物線交點數 = b² − 4ac" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q18</strong>：直線同拋物線交點數 = b² − 4ac</figcaption>
+            </figure>
           </div>
-          <p class="lesson-subtitle">30-60-90 = 1 : √3 : 2（斜邊 = 短邊 × 2），由等邊三角形切一半得嚟；45-45-90 = 1 : 1 : √2。</p>
-        </header>
-        <div class="gallery-grid">
-          <figure class="diagram-panel">
-            <a href="assets/fig/30-60-90.png" aria-label="打開大圖"><img src="assets/fig/30-60-90.png" alt="30-60-90 由嚟同點認" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q21</strong>：30-60-90 由嚟同點認</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q21-inscribed-rect.png" aria-label="打開大圖"><img src="assets/fig/m2q21-inscribed-rect.png" alt="長方形喺圓入面：對角線 = 直徑 = 2s" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q21</strong>：長方形喺圓入面：對角線 = 直徑 = 2s</figcaption>
-          </figure>
-        </div>
+        </details>
       </section>
 
-      <section class="lesson gallery" id="exponential" aria-labelledby="exponentialTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">11</div>
-          <div>
-            <p class="section-kicker"><span class="status">圖庫</span></p>
-            <h2 id="exponentialTitle">指數圖</h2>
+      <section class="topic" id="trig">
+        <h2><span>03</span>三角</h2>
+        <a href="assets/fig/sheet-trig-tall.png" aria-label="打開大圖">
+          <picture>
+            <source media="(max-width: 48rem)" srcset="assets/fig/sheet-trig-tall.png">
+            <img class="sheet" src="assets/fig/sheet-trig.png" alt="三角：要背嘅嘢一頁睇晒" loading="lazy">
+          </picture>
+        </a>
+        <details>
+          <summary>例題圖（11 張，撳開先睇）</summary>
+          <div class="examples">
+            <figure>
+              <a href="assets/fig/tan-cheatsheet.png"><img src="assets/fig/tan-cheatsheet.png" alt="tan 大角要背 6 樣" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q19</strong>：tan 大角要背 6 樣</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/sin-cos-sign.png"><img src="assets/fig/sin-cos-sign.png" alt="sin = 上下、cos = 左右、tan = 斜度" loading="lazy"></a>
+              <figcaption><strong>亞太C M1 Q15</strong>：sin = 上下、cos = 左右、tan = 斜度</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/sin-sign-why.png"><img src="assets/fig/sin-sign-why.png" alt="三角形喺左上：直邊 +、橫邊 −、斜邊永遠 +" loading="lazy"></a>
+              <figcaption><strong>亞太C M1 Q15</strong>：三角形喺左上：直邊 +、橫邊 −、斜邊永遠 +</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/135-split.png"><img src="assets/fig/135-split.png" alt="x 軸係直線 180°：135° + 45°" loading="lazy"></a>
+              <figcaption><strong>亞太C M1 Q15</strong>：x 軸係直線 180°：135° + 45°</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/sin45-sin135.png"><img src="assets/fig/sin45-sin135.png" alt="sin 45° = sin 135°：照鏡，高度一樣" loading="lazy"></a>
+              <figcaption><strong>亞太C M1 Q15</strong>：sin 45° = sin 135°：照鏡，高度一樣</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/four-45s.png"><img src="assets/fig/four-45s.png" alt="四支針細角都係 45°" loading="lazy"></a>
+              <figcaption><strong>亞太C M1 Q15</strong>：四支針細角都係 45°</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/sin-height.gif"><img src="assets/fig/sin-height.gif" alt="動畫：sin = 針尖有幾高" loading="lazy"></a>
+              <figcaption><strong>亞太C M1 Q15</strong>：動畫：sin = 針尖有幾高</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/tan-as-slope.png"><img src="assets/fig/tan-as-slope.png" alt="tan = 斜度" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q19</strong>：tan = 斜度</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/full-turn.gif"><img src="assets/fig/full-turn.gif" alt="動畫：轉成個圈等於冇轉" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q19</strong>：動畫：轉成個圈等於冇轉</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/30-60-90.png"><img src="assets/fig/30-60-90.png" alt="30-60-90 由嚟同點認" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q21</strong>：30-60-90 由嚟同點認</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q21-inscribed-rect.png"><img src="assets/fig/m2q21-inscribed-rect.png" alt="長方形喺圓入面：對角線 = 直徑" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q21</strong>：長方形喺圓入面：對角線 = 直徑</figcaption>
+            </figure>
           </div>
-          <p class="lesson-subtitle">x 喺頭頂 = 指數。負號反轉；尾嗰個數係掂唔到嘅線；一定冇最細值、冇最大值。</p>
-        </header>
-        <div class="gallery-grid">
-          <figure class="diagram-panel">
-            <a href="assets/fig/what-is-exponential.png" aria-label="打開大圖"><img src="assets/fig/what-is-exponential.png" alt="指數圖係乜：x 喺頭頂，每格 ×3" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q24</strong>：指數圖係乜：x 喺頭頂，每格 ×3</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/exp-flip.gif" aria-label="打開大圖"><img src="assets/fig/exp-flip.gif" alt="動畫：3ˣ → 反轉 → 搬低 3 → 冇最低點" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q24</strong>：動畫：3ˣ → 反轉 → 搬低 3 → 冇最低點</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/exp-no-min.png" aria-label="打開大圖"><img src="assets/fig/exp-no-min.png" alt="負號反轉；-3 係掂唔到嘅天花板" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q24</strong>：負號反轉；-3 係掂唔到嘅天花板</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q16-read-graph.png" aria-label="打開大圖"><img src="assets/fig/m2q16-read-graph.png" alt="點睇 -3ˣ + k 嘅圖：紅點 (0, k − 1)，左邊貼住 y = k" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q16</strong>：點睇 -3ˣ + k 嘅圖：紅點 (0, k − 1)，左邊貼住 y = k</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q22-divide.png" aria-label="打開大圖"><img src="assets/fig/m2q22-divide.png" alt="固定動作：指數 + 兩個值 → 兩條式相除" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q22</strong>：固定動作：指數 + 兩個值 → 兩條式相除</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q22-steps.png" aria-label="打開大圖"><img src="assets/fig/m2q22-steps.png" alt="每行 1 步乘同一個數" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q22</strong>：每行 1 步乘同一個數</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q25-simple.png" aria-label="打開大圖"><img src="assets/fig/m2q25-simple.png" alt="頭頂 t 前面個數 = 一年乘幾多次（未教明，要再教）" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q25</strong>：頭頂 t 前面個數 = 一年乘幾多次（未教明，要再教）</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q25-exp-period.png" aria-label="打開大圖"><img src="assets/fig/m2q25-exp-period.png" alt="計數器 = 1 嗰陣係幾耐" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q25</strong>：計數器 = 1 嗰陣係幾耐</figcaption>
-          </figure>
-        </div>
+        </details>
       </section>
 
-      <section class="lesson gallery" id="lines" aria-labelledby="linesTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">12</div>
-          <div>
-            <p class="section-kicker"><span class="status">圖庫</span></p>
-            <h2 id="linesTitle">直線</h2>
+      <section class="topic" id="exponential">
+        <h2><span>04</span>指數</h2>
+        <a href="assets/fig/sheet-exponential-tall.png" aria-label="打開大圖">
+          <picture>
+            <source media="(max-width: 48rem)" srcset="assets/fig/sheet-exponential-tall.png">
+            <img class="sheet" src="assets/fig/sheet-exponential.png" alt="指數：要背嘅嘢一頁睇晒" loading="lazy">
+          </picture>
+        </a>
+        <details>
+          <summary>例題圖（8 張，撳開先睇）</summary>
+          <div class="examples">
+            <figure>
+              <a href="assets/fig/what-is-exponential.png"><img src="assets/fig/what-is-exponential.png" alt="指數圖係乜：x 喺頭頂，每格 ×3" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q24</strong>：指數圖係乜：x 喺頭頂，每格 ×3</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/exp-flip.gif"><img src="assets/fig/exp-flip.gif" alt="動畫：3ˣ → 反轉 → 搬低 3 → 冇最低點" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q24</strong>：動畫：3ˣ → 反轉 → 搬低 3 → 冇最低點</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/exp-no-min.png"><img src="assets/fig/exp-no-min.png" alt="負號反轉；-3 係掂唔到嘅天花板" loading="lazy"></a>
+              <figcaption><strong>PT5 M1 Q24</strong>：負號反轉；-3 係掂唔到嘅天花板</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q16-read-graph.png"><img src="assets/fig/m2q16-read-graph.png" alt="點睇 -3ˣ + k 嘅圖" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q16</strong>：點睇 -3ˣ + k 嘅圖</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q22-divide.png"><img src="assets/fig/m2q22-divide.png" alt="指數 + 兩個值 → 兩條式相除" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q22</strong>：指數 + 兩個值 → 兩條式相除</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q22-steps.png"><img src="assets/fig/m2q22-steps.png" alt="每行 1 步乘同一個數" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q22</strong>：每行 1 步乘同一個數</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q25-simple.png"><img src="assets/fig/m2q25-simple.png" alt="頭頂 t 前面個數 = 一年乘幾多次（未教明）" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q25</strong>：頭頂 t 前面個數 = 一年乘幾多次（未教明）</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q25-exp-period.png"><img src="assets/fig/m2q25-exp-period.png" alt="計數器 = 1 嗰陣係幾耐" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q25</strong>：計數器 = 1 嗰陣係幾耐</figcaption>
+            </figure>
           </div>
-          <p class="lesson-subtitle">3 款寫法：y = mx + b、y = m(x − Px) + Py、Ax + By = C。平行 = 斜度一樣；垂直 = 反轉 + 變號。</p>
-        </header>
-        <div class="gallery-grid">
-          <figure class="diagram-panel">
-            <a href="assets/fig/line-forms.png" aria-label="打開大圖"><img src="assets/fig/line-forms.png" alt="直線 3 款寫法 + 特別直線" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q26</strong>：直線 3 款寫法 + 特別直線</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q26-tangent.png" aria-label="打開大圖"><img src="assets/fig/m2q26-tangent.png" alt="切線 ⊥ 半徑：斜度反轉變號" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q26</strong>：切線 ⊥ 半徑：斜度反轉變號</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q26-check-options.png" aria-label="打開大圖"><img src="assets/fig/m2q26-check-options.png" alt="寫條線，逐個選項代 x 對 y" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q26</strong>：寫條線，逐個選項代 x 對 y</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q13-no-solution.png" aria-label="打開大圖"><img src="assets/fig/m2q13-no-solution.png" alt="冇解 = 平行；同一條線 = 無限多解" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q13</strong>：冇解 = 平行；同一條線 = 無限多解</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q12-boundary-points.png" aria-label="打開大圖"><img src="assets/fig/m2q12-boundary-points.png" alt="陰影不等式：界線上兩點代入" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q12</strong>：陰影不等式：界線上兩點代入</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q20-system.png" aria-label="打開大圖"><img src="assets/fig/m2q20-system.png" alt="兩條聯立：直接加；或者 Casio EQN" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q20</strong>：兩條聯立：直接加；或者 Casio EQN</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q19-risky-row.png" aria-label="打開大圖"><img src="assets/fig/m2q19-risky-row.png" alt="邊個表啱：逐行代入，一見唔過關就刪" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q19</strong>：邊個表啱：逐行代入，一見唔過關就刪</figcaption>
-          </figure>
-        </div>
+        </details>
       </section>
 
-      <section class="lesson gallery" id="quadratics" aria-labelledby="quadraticsTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">13</div>
-          <div>
-            <p class="section-kicker"><span class="status">圖庫</span></p>
-            <h2 id="quadraticsTitle">二次方程</h2>
+      <section class="topic" id="geometry">
+        <h2><span>05</span>幾何</h2>
+        <a href="assets/fig/sheet-geometry-tall.png" aria-label="打開大圖">
+          <picture>
+            <source media="(max-width: 48rem)" srcset="assets/fig/sheet-geometry-tall.png">
+            <img class="sheet" src="assets/fig/sheet-geometry.png" alt="幾何：要背嘅嘢一頁睇晒" loading="lazy">
+          </picture>
+        </a>
+        <details>
+          <summary>例題圖（2 張，撳開先睇）</summary>
+          <div class="examples">
+            <figure>
+              <a href="assets/fig/m2q19-similar.png"><img src="assets/fig/m2q19-similar.png" alt="證相似：AA 或 SAS" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q19</strong>：證相似：AA 或 SAS</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q17-map.png"><img src="assets/fig/m2q17-map.png" alt="地圖縮細 70%：剩 30%，每吋代表多啲" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q17</strong>：地圖縮細 70%：剩 30%，每吋代表多啲</figcaption>
+            </figure>
           </div>
-          <p class="lesson-subtitle">3 款寫法：標準式、頂點式、因式式。乘埋 = 0 先可以逐個括號 = 0；幾多個解睇 b² − 4ac。</p>
-        </header>
-        <div class="gallery-grid">
-          <figure class="diagram-panel">
-            <a href="assets/fig/quadratic-forms.png" aria-label="打開大圖"><img src="assets/fig/quadratic-forms.png" alt="二次 3 款寫法" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q6</strong>：二次 3 款寫法</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/zeros-to-factors.png" aria-label="打開大圖"><img src="assets/fig/zeros-to-factors.png" alt="掂 x 軸兩點 → a(x − r)(x − s)" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q26</strong>：掂 x 軸兩點 → a(x − r)(x − s)</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/q26-fast-methods.png" aria-label="打開大圖"><img src="assets/fig/q26-fast-methods.png" alt="Vx = 兩個 zero 中間 = −b/(2a)" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q26</strong>：Vx = 兩個 zero 中間 = −b/(2a)</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q7-zero-product.png" aria-label="打開大圖"><img src="assets/fig/m2q7-zero-product.png" alt="兩邊一樣嘅數消走 → 乘埋 = 0" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q7</strong>：兩邊一樣嘅數消走 → 乘埋 = 0</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/apacc-q19-move-to-zero.png" aria-label="打開大圖"><img src="assets/fig/apacc-q19-move-to-zero.png" alt="右邊唔係 0 → 先全部搬去一邊" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M1 Q19</strong>：右邊唔係 0 → 先全部搬去一邊</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/q27-methods.png" aria-label="打開大圖"><img src="assets/fig/q27-methods.png" alt="g(7 − w) = 0 → 7 − w 係紅點" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q27</strong>：g(7 − w) = 0 → 7 − w 係紅點</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/q27-new-curve.png" aria-label="打開大圖"><img src="assets/fig/q27-new-curve.png" alt="代入 = 第二條線；expand 唔會變線" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M1 Q27</strong>：代入 = 第二條線；expand 唔會變線</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q24-discriminant.png" aria-label="打開大圖"><img src="assets/fig/m2q24-discriminant.png" alt="冇實數解：先刪 a、c 一正一負" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q24</strong>：冇實數解：先刪 a、c 一正一負</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q18-line-parabola.png" aria-label="打開大圖"><img src="assets/fig/m2q18-line-parabola.png" alt="直線同拋物線交點數 = b² − 4ac" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q18</strong>：直線同拋物線交點數 = b² − 4ac</figcaption>
-          </figure>
-        </div>
+        </details>
       </section>
 
-      <section class="lesson gallery" id="misc" aria-labelledby="miscTitle">
-        <header class="lesson-head">
-          <div class="lesson-number">14</div>
-          <div>
-            <p class="section-kicker"><span class="status">圖庫</span></p>
-            <h2 id="miscTitle">百分比、代數字、情境、幾何</h2>
+      <section class="topic" id="moves">
+        <h2><span>06</span>固定動作</h2>
+        <a href="assets/fig/sheet-moves-tall.png" aria-label="打開大圖">
+          <picture>
+            <source media="(max-width: 48rem)" srcset="assets/fig/sheet-moves-tall.png">
+            <img class="sheet" src="assets/fig/sheet-moves.png" alt="固定動作：要背嘅嘢一頁睇晒" loading="lazy">
+          </picture>
+        </a>
+        <details>
+          <summary>例題圖（4 張，撳開先睇）</summary>
+          <div class="examples">
+            <figure>
+              <a href="assets/fig/apacc-q22-plug100.png"><img src="assets/fig/apacc-q22-plug100.png" alt="百分比題代 c = 100" loading="lazy"></a>
+              <figcaption><strong>亞太C M1 Q22</strong>：百分比題代 c = 100</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q23-plug-k2.png"><img src="assets/fig/m2q23-plug-k2.png" alt="代 k = 1 會呃人，代 2" loading="lazy"></a>
+              <figcaption><strong>PT5 M2 Q23</strong>：代 k = 1 會呃人，代 2</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/m2q14-classes.png"><img src="assets/fig/m2q14-classes.png" alt="分段收費：逐堂畫出嚟再對選項" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q14</strong>：分段收費：逐堂畫出嚟再對選項</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/fig/abs-two-cases.png"><img src="assets/fig/abs-two-cases.png" alt="絕對值 = 離 0 有幾遠 → 兩個情況" loading="lazy"></a>
+              <figcaption><strong>亞太C M2 Q9</strong>：絕對值 = 離 0 有幾遠 → 兩個情況</figcaption>
+            </figure>
           </div>
-          <p class="lesson-subtitle">冇實數嘅百分比題代 100；只知正負代 ±1；代數字揀選項默認代 2，要代兩個數驗證。</p>
-        </header>
-        <div class="gallery-grid">
-          <figure class="diagram-panel">
-            <a href="assets/fig/apacc-q22-plug100.png" aria-label="打開大圖"><img src="assets/fig/apacc-q22-plug100.png" alt="百分比題代 c = 100" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M1 Q22</strong>：百分比題代 c = 100</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q23-plug-k2.png" aria-label="打開大圖"><img src="assets/fig/m2q23-plug-k2.png" alt="代 k = 1 會呃人，代 2" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>PT5 M2 Q23</strong>：代 k = 1 會呃人，代 2</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q14-classes.png" aria-label="打開大圖"><img src="assets/fig/m2q14-classes.png" alt="分段收費：逐堂畫出嚟再對選項" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q14</strong>：分段收費：逐堂畫出嚟再對選項</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q17-map.png" aria-label="打開大圖"><img src="assets/fig/m2q17-map.png" alt="地圖縮細 70%：剩 30%，每吋代表多啲" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q17</strong>：地圖縮細 70%：剩 30%，每吋代表多啲</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/abs-two-cases.png" aria-label="打開大圖"><img src="assets/fig/abs-two-cases.png" alt="絕對值 = 離 0 有幾遠 → 兩個情況" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q9</strong>：絕對值 = 離 0 有幾遠 → 兩個情況</figcaption>
-          </figure>
-          <figure class="diagram-panel">
-            <a href="assets/fig/m2q19-similar.png" aria-label="打開大圖"><img src="assets/fig/m2q19-similar.png" alt="證相似：AA 或 SAS（夾住等角嗰兩條邊）" loading="lazy"></a>
-            <figcaption class="diagram-caption"><strong>亞太C M2 Q19</strong>：證相似：AA 或 SAS（夾住等角嗰兩條邊）</figcaption>
-          </figure>
-        </div>
+        </details>
       </section>
-      <!-- END GALLERY -->
-
-      <aside class="not-yet">
-        <strong>Circle 暫時唔放。</strong> 我哋未正式學完，所以唔會為咗份表睇落完整而塞一堆未理解嘅公式。學完、做過 variants、揀定版本先加入。
-      </aside>
-
       <footer>
-        Nicole’s SAT Math working sheet · 理解 → 鎖定最快版本 → variants → 肌肉記憶
+        Nicole’s SAT Math working sheet · 見到乜 → 做乜 · 固定動作，唔靠 pattern
       </footer>
     </main>
   </div>
