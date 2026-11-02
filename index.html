@@ -400,6 +400,8 @@
     }
 
     .diagram-panel svg { width: 100%; height: auto; display: block; }
+    .diagram-panel img { width: 100%; height: auto; display: block; }
+    #tan-angles figure.diagram-panel { margin: 0 0 1.5rem; padding: .35rem; }
 
     .diagram-caption {
       margin: .75rem 0 0;
@@ -946,6 +948,7 @@
       <a href="#square-solutions" data-no="05">Square solutions</a>
       <a href="#quadratic-roots" data-no="06">Quadratic roots</a>
       <a href="#mother-lines" data-no="07">Mother graphs</a>
+      <a href="#tan-angles" data-no="08">Tan 大角 / π</a>
     </nav>
 
     <main id="main">
@@ -1471,6 +1474,48 @@ Disp "VY=",Y</pre>
           <p class="work-line">11<i>x</i> + 18<i>y</i> = 730 → 約 (0, 41) 同 (66, 0)</p>
           <p class="work-line answer">兩條都由左上落去右下 → B</p>
         </article>
+      </section>
+
+      <section class="lesson" id="tan-angles" aria-labelledby="tanAnglesTitle">
+        <header class="lesson-head">
+          <div class="lesson-number">08</div>
+          <div>
+            <p class="section-kicker"><span class="status">要背</span></p>
+            <h2 id="tanAnglesTitle">Tan 大角 / π</h2>
+          </div>
+          <p class="lesson-subtitle">目的：見到 tan(92π/3) 呢類大角唔驚。tan 即係斜度；π 換 180；轉成個圈等於冇轉。</p>
+        </header>
+
+        <div class="formula-stage">
+          <span class="formula-label">三步</span>
+          <div class="equation small graph-family-equation">
+            <span>π → 180°</span><span class="join">→</span>
+            <span>÷ 360 攞餘數</span><span class="join">→</span>
+            <span>睇方向定正負</span>
+          </div>
+        </div>
+
+        <figure class="diagram-panel">
+          <a href="assets/tan-cheatsheet-tall.png" aria-label="打開大圖">
+          <picture>
+            <source media="(max-width: 42rem)" srcset="assets/tan-cheatsheet-tall.png">
+            <img src="assets/tan-cheatsheet.png" alt="tan 同 radian 要背嘅 6 樣：tan 等於斜度；π 等於 180 度；一個圈 360 度等於冇轉過；30-60-90 三角形 1 比 根號3 比 2；45-45-90 三角形 1 比 1 比 根號2；向右上正、向左上負。" loading="lazy">
+          </picture>
+          </a>
+          <figcaption class="diagram-caption">㩒張圖可以開大圖放大。PT5 M1 Q19：92π/3 = 5520° = 15 個圈 + 120° → tan 120° = −√3。</figcaption>
+        </figure>
+
+        <div class="explanation">
+          <ol class="mechanical">
+            <li><strong>tan = 對面 ÷ 隔籬 = 斜度</strong>（sin = 對面 ÷ 斜邊，cos = 隔籬 ÷ 斜邊）。</li>
+            <li><strong>π = 180°</strong>：π/6 = 30°，π/4 = 45°，π/3 = 60°。</li>
+            <li><strong>大角 ÷ 360 攞餘數</strong>：轉成個圈等於冇轉過。</li>
+            <li><strong>30-60-90 = 1 : √3 : 2</strong>：tan 30° = 1/√3 = √3/3 ≈ 0.577，tan 60° = √3 ≈ 1.732。</li>
+            <li><strong>45-45-90 = 1 : 1 : √2</strong>：tan 45° = 1。</li>
+            <li><strong>向右上 → 正，向左上 → 負</strong>；細角 = 180 − 角：tan 150° = −tan 30° = −√3/3。</li>
+          </ol>
+          <div class="ink-note">撳機：見到 π → SHIFT → MODE → 4（Rad）。計完轉返 Deg：SHIFT → MODE → 3。</div>
+        </div>
       </section>
 
       <aside class="not-yet">
