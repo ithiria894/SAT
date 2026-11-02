@@ -33,7 +33,8 @@ TOPICS = [
         ("m2q13-no-solution.png", "亞太C M2 Q13", "冇解 = 平行；同一條線 = 無限多解"),
         ("m2q20-system.png", "PT5 M2 Q20", "兩條聯立：直接加；或者 Casio EQN"),
         ("m2q12-boundary-points.png", "亞太C M2 Q12", "陰影不等式：界線上兩點代入"),
-        ("m2q19-risky-row.png", "PT5 M2 Q19", "邊個表啱：逐行代入，一見唔過關就刪")]),
+        ("m2q19-risky-row.png", "PT5 M2 Q19", "邊個表啱：逐行代入，一見唔過關就刪"),
+        ("na2509-m1q17-quadrants.png", "2025-09 北美A M1 Q17", "不等式區域：逐格睇邊格冇陰影")]),
     ("quadratics", "02", "二次方程", [
         ("quadratic-forms.png", "亞太C M2 Q6", "二次 3 款寫法"),
         ("zeros-to-factors.png", "PT5 M1 Q26", "掂 x 軸兩點 → a(x − r)(x − s)"),
@@ -67,7 +68,9 @@ TOPICS = [
         ("m2q25-exp-period.png", "PT5 M2 Q25", "計數器 = 1 嗰陣係幾耐")]),
     ("geometry", "05", "幾何", [
         ("m2q19-similar.png", "亞太C M2 Q19", "證相似：AA 或 SAS"),
-        ("m2q17-map.png", "亞太C M2 Q17", "地圖縮細 70%：剩 30%，每吋代表多啲")]),
+        ("m2q17-map.png", "亞太C M2 Q17", "地圖縮細 70%：剩 30%，每吋代表多啲"),
+        ("na2509-m1q7-pyramid.png", "2025-09 北美A M1 Q7", "金字塔／圓錐體積 = 底 × 高 ÷ 3"),
+        ("na2509-m2q21-units.png", "2025-09 北美A M2 Q21", "單位鏈：面積要除 3.28 兩次")]),
     ("moves", "06", "固定動作", [
         ("apacc-q22-plug100.png", "亞太C M1 Q22", "百分比題代 c = 100"),
         ("m2q23-plug-k2.png", "PT5 M2 Q23", "代 k = 1 會呃人，代 2"),
