@@ -75,7 +75,8 @@ TOPICS = [
         ("apacc-q22-plug100.png", "亞太C M1 Q22", "百分比題代 c = 100"),
         ("m2q23-plug-k2.png", "PT5 M2 Q23", "代 k = 1 會呃人，代 2"),
         ("m2q14-classes.png", "亞太C M2 Q14", "分段收費：逐堂畫出嚟再對選項"),
-        ("abs-two-cases.png", "亞太C M2 Q9", "絕對值 = 離 0 有幾遠 → 兩個情況")]),
+        ("abs-two-cases.png", "亞太C M2 Q9", "絕對值 = 離 0 有幾遠 → 兩個情況"),
+        ("na2509-m2q22-zero.png", "2025-09 北美A M2 Q22", "y/3 = y/13：淨係 y = 0 得")]),
 ]
 
 CSS = """
