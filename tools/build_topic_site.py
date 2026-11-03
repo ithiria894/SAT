@@ -44,7 +44,8 @@ TOPICS = [
         ("q27-methods.png", "PT5 M1 Q27", "g(7 − w) = 0 → 7 − w 係紅點"),
         ("q27-new-curve.png", "PT5 M1 Q27", "代入 = 第二條線；expand 唔會變線"),
         ("m2q24-discriminant.png", "PT5 M2 Q24", "冇實數解：先刪 a、c 一正一負"),
-        ("m2q18-line-parabola.png", "亞太C M2 Q18", "直線同拋物線交點數 = b² − 4ac")]),
+        ("m2q18-line-parabola.png", "亞太C M2 Q18", "直線同拋物線交點數 = b² − 4ac"),
+        ("na2410-m1q11-vertex.png", "2024-10 北美A M1 Q11", "最高 → 頂點式；開口向下 a 一定負")]),
     ("trig", "03", "三角", [
         ("tan-cheatsheet.png", "PT5 M1 Q19", "tan 大角要背 6 樣"),
         ("sin-cos-sign.png", "亞太C M1 Q15", "sin = 上下、cos = 左右、tan = 斜度"),
@@ -65,18 +66,22 @@ TOPICS = [
         ("m2q22-divide.png", "亞太C M2 Q22", "指數 + 兩個值 → 兩條式相除"),
         ("m2q22-steps.png", "亞太C M2 Q22", "每行 1 步乘同一個數"),
         ("m2q25-simple.png", "PT5 M2 Q25", "頭頂 t 前面個數 = 一年乘幾多次（未教明）"),
-        ("m2q25-exp-period.png", "PT5 M2 Q25", "計數器 = 1 嗰陣係幾耐")]),
+        ("m2q25-exp-period.png", "PT5 M2 Q25", "計數器 = 1 嗰陣係幾耐"),
+        ("na2410-m2q18-min.png", "2024-10 北美A M2 Q18", "條式「顯示」最細值：頭頂淨係 x 先係")]),
     ("geometry", "05", "幾何", [
         ("m2q19-similar.png", "亞太C M2 Q19", "證相似：AA 或 SAS"),
         ("m2q17-map.png", "亞太C M2 Q17", "地圖縮細 70%：剩 30%，每吋代表多啲"),
         ("na2509-m1q7-pyramid.png", "2025-09 北美A M1 Q7", "金字塔／圓錐體積 = 底 × 高 ÷ 3"),
-        ("na2509-m2q21-units.png", "2025-09 北美A M2 Q21", "單位鏈：面積要除 3.28 兩次")]),
+        ("na2509-m2q21-units.png", "2025-09 北美A M2 Q21", "單位鏈：面積要除 3.28 兩次"),
+        ("na2410-m2q22-altitude.png", "2024-10 北美A M2 Q22", "直徑 → 90°；高² = 兩段相乘")]),
     ("moves", "06", "固定動作", [
         ("apacc-q22-plug100.png", "亞太C M1 Q22", "百分比題代 c = 100"),
         ("m2q23-plug-k2.png", "PT5 M2 Q23", "代 k = 1 會呃人，代 2"),
         ("m2q14-classes.png", "亞太C M2 Q14", "分段收費：逐堂畫出嚟再對選項"),
         ("abs-two-cases.png", "亞太C M2 Q9", "絕對值 = 離 0 有幾遠 → 兩個情況"),
-        ("na2509-m2q22-zero.png", "2025-09 北美A M2 Q22", "y/3 = y/13：淨係 y = 0 得")]),
+        ("na2509-m2q22-zero.png", "2025-09 北美A M2 Q22", "y/3 = y/13：淨係 y = 0 得"),
+        ("mean-median-rules.png", "2024-10 北美A M2 Q12", "加一個數：mean 一定變，median 唔一定"),
+        ("na2410-m2q19-nails.png", "2024-10 北美A M2 Q19", "數釘：件數 = 空隙 + 1")]),
 ]
 
 CSS = """
