@@ -37,6 +37,7 @@ TOPICS = [
         ("na2509-m1q17-quadrants.png", "2025-09 北美A M1 Q17", "不等式區域：逐格睇邊格冇陰影")]),
     ("quadratics", "02", "二次方程", [
         ("quadratic-forms.png", "亞太C M2 Q6", "二次 3 款寫法"),
+        ("vertex-form-read.png", "2024-10 北美C M2 Q9", "頂點式直接讀頂點，唔使展開"),
         ("zeros-to-factors.png", "PT5 M1 Q26", "掂 x 軸兩點 → a(x − r)(x − s)"),
         ("q26-fast-methods.png", "PT5 M1 Q26", "Vx = 兩個 zero 中間 = −b/(2a)"),
         ("m2q7-zero-product.png", "PT5 M2 Q7", "兩邊一樣嘅數消走 → 乘埋 = 0"),
@@ -61,6 +62,7 @@ TOPICS = [
         ("m2q21-inscribed-rect.png", "PT5 M2 Q21", "長方形喺圓入面：對角線 = 直徑")]),
     ("exponential", "04", "指數", [
         ("what-is-exponential.png", "PT5 M1 Q24", "指數圖係乜：x 喺頭頂，每格 ×3"),
+        ("exp-parent-shift.png", "2024-10 北美C M1 Q21", "5ˣ 母圖過 (0, 1)；+k 成條搬上落"),
         ("exp-flip.gif", "PT5 M1 Q24", "動畫：3ˣ → 反轉 → 搬低 3 → 冇最低點"),
         ("exp-no-min.png", "PT5 M1 Q24", "負號反轉；-3 係掂唔到嘅天花板"),
         ("m2q16-read-graph.png", "亞太C M2 Q16", "點睇 -3ˣ + k 嘅圖"),
