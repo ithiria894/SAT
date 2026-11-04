@@ -63,6 +63,7 @@ TOPICS = [
     ("exponential", "04", "指數", [
         ("what-is-exponential.png", "PT5 M1 Q24", "指數圖係乜：x 喺頭頂，每格 ×3"),
         ("exp-parent-shift.png", "2024-10 北美C M1 Q21", "5ˣ 母圖過 (0, 1)；+k 成條搬上落"),
+        ("exp-bases-compare.png", "2024-10 北美C M1 Q21", "底數、前面個數、+k 三種變化比較"),
         ("exp-flip.gif", "PT5 M1 Q24", "動畫：3ˣ → 反轉 → 搬低 3 → 冇最低點"),
         ("exp-no-min.png", "PT5 M1 Q24", "負號反轉；-3 係掂唔到嘅天花板"),
         ("m2q16-read-graph.png", "亞太C M2 Q16", "點睇 -3ˣ + k 嘅圖"),
