@@ -48,6 +48,7 @@ TOPICS = [
         ("m2q24-discriminant.png", "PT5 M2 Q24", "冇實數解：先刪 a、c 一正一負"),
         ("m2q18-line-parabola.png", "亞太C M2 Q18", "直線同拋物線交點數 = b² − 4ac"),
         ("factor-disc-max-ac-1-graph.png", "2024-12 第八套 M2 Q16", "有 factor = 掂到 x-axis；c 越大越向上推"),
+        ("factor-disc-max-ac-3-raise.gif", "2024-12 第八套 M2 Q16", "動畫：ac 越大越向上推，最後一個仲掂到 x-axis = 最大"),
         ("factor-disc-max-ac-2-why.png", "2024-12 第八套 M2 Q16", "discriminant = vertex 喺上定下；greatest ac = (b/2)²"),
         ("na2410-m1q11-vertex.png", "2024-10 北美A M1 Q11", "最高 → 頂點式；開口向下 a 一定負")]),
     ("trig", "03", "三角", [
