@@ -47,6 +47,7 @@ TOPICS = [
         ("na2410c-m2q14-factor.png", "2024-10 北美C M2 Q14", "抽兩次公因數再逐個括號 = 0"),
         ("m2q24-discriminant.png", "PT5 M2 Q24", "冇實數解：先刪 a、c 一正一負"),
         ("m2q18-line-parabola.png", "亞太C M2 Q18", "直線同拋物線交點數 = b² − 4ac"),
+        ("factor-box-x2b.png", "2025-09 第2套 M2 Q17", "田字格拆 factor：對角 = 頭尾，綠色兩格 = 中間"),
         ("factor-disc-max-ac-1-graph.png", "2024-12 第八套 M2 Q16", "有 factor = 掂到 x-axis；c 越大越向上推"),
         ("factor-disc-max-ac-3-raise.gif", "2024-12 第八套 M2 Q16", "動畫：ac 越大越向上推，最後一個仲掂到 x-axis = 最大"),
         ("factor-disc-max-ac-2-why.png", "2024-12 第八套 M2 Q16", "discriminant = vertex 喺上定下；greatest ac = (b/2)²"),
